@@ -21,16 +21,17 @@ import { HeaderModule } from './modules/header/header.module';
 import { MobileModule } from './modules/mobile/mobile.module';
 import { SharedModule } from './shared/shared.module';
 import { WidgetsModule } from './modules/widgets/widgets.module';
+import { CountToModule } from 'angular-count-to';
 
 // components
 import { AppComponent } from './app.component';
 import { RootComponent } from './components/root/root.component';
-
 // pages
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 
+import { AnimatedDigitComponent } from './animated-digit/animated-digit.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.compon
         PageHomeOneComponent,
         PageNotFoundComponent,
         PageHomeTwoComponent,
+        AnimatedDigitComponent
   
     ],
     imports: [
@@ -60,7 +62,9 @@ import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.compon
         HeaderModule,
         MobileModule,
         SharedModule,
-        WidgetsModule
+        WidgetsModule,
+        CountToModule
+        
     ],
     providers: [
         // { provide: LOCALE_ID, useValue: 'it' }

@@ -1,0 +1,43 @@
+@import '../../../scss/variables';
+
+
+.block-features__item {
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    padding: 8px 12px;
+    display: -webkit-box;
+    display: flex;
+}
+
+.block-features__content {
+   min-width: 100px;
+}
+.float-div{
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background-color: $accent-opposite-color;
+        // color: $accent-opposite-color;
+        z-index: 9999;
+        // padding: 4px 12px;
+        // margin: auto;
+        // border-radius: 1rem;
+
+}
+
+.accent{
+    color: $accent-color;
+}
+
+.secondary{
+    color: $departments-bg;
+}
+@media screen and (max-width: 600px) {
+    .float-div{
+        
+        visibility: hidden;
+
+}
+  }
+
