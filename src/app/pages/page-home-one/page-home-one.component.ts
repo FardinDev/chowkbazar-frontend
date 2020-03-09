@@ -11,7 +11,7 @@ import { takeUntil, tap } from 'rxjs/operators';
 interface ProductsCarouselGroup extends BlockHeaderGroup {
     products$: Observable<Product[]>;
 }
-
+ 
 interface ProductsCarouselData {
     abort$: Subject<void>;
     loading: boolean;

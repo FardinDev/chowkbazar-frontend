@@ -142,7 +142,7 @@
         }
     }
 
-    @media (max-width: breakpoint(xs-end)) and (min-width: 420px) {
+    @media (max-width: breakpoint(xs-end)) and (min-width: 320px) {
         .block-features__item {
             text-align: center;
             flex-direction: column;
@@ -159,13 +159,13 @@
         }
     }
 
-    @media (max-width: 419px) {
+    @media (max-width: 319px) {
         .block-features__list {
             flex-wrap: wrap;
         }
         .block-features__item {
             flex-basis: auto;
-            width: 100%;
+            width: 50%;
             flex-shrink: 0;
         }
         .block-features__icon {
