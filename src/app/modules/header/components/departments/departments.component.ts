@@ -40,7 +40,7 @@ export class DepartmentsComponent implements OnInit, OnDestroy {
                 this.fixed = true;
                 this.isOpen = true;
 
-                if (isPlatformBrowser(this.platformId)) {
+                 if (isPlatformBrowser(this.platformId)) {
                     setTimeout(() => {
                         const areaRect = areaElement.getBoundingClientRect();
                         const areaBottom = areaRect.top + areaRect.height + window.scrollY;
