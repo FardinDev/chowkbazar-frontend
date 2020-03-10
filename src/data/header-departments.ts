@@ -12,7 +12,8 @@ export const departments: NavigationLink[] = [{
             columns: [
                 {
                     size: 3,
-                    items: [{
+                    items: [
+                        {
                             label: 'Power Tools',
                             url: '/shop/catalog',
                             items: [{

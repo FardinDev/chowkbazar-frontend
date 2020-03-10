@@ -5,7 +5,8 @@ import { departments } from '../../../../../data/header-departments';
 import { DepartmentsService } from '../../../../shared/services/departments.service';
 import { NavigationLink } from '../../../../shared/interfaces/navigation-link';
 import { isPlatformBrowser } from '@angular/common';
-
+import { ShopService } from '../../../../shared/api/shop.service';
+import { Observable } from 'rxjs';
 @Component({
     selector: 'app-header-departments',
     templateUrl: './departments.component.html',
@@ -14,7 +15,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class DepartmentsComponent implements OnInit, OnDestroy {
     private destroy$: Subject<any> = new Subject();
 
-    items: NavigationLink[] = departments;
+    items = [];
     hoveredItem: NavigationLink = null;
 
     isOpen = false;
@@ -28,10 +29,16 @@ export class DepartmentsComponent implements OnInit, OnDestroy {
         @Inject(PLATFORM_ID) private platformId: any,
         private renderer: Renderer2,
         private el: ElementRef,
-        private service: DepartmentsService
+        private service: DepartmentsService,
+        private shop: ShopService,
     ) { }
 
     ngOnInit(): void {
+       this.shop.getDepartments().subscribe(val => { 
+           console.log(val);
+        this.items = val});
+        // console.log('hi');
+        // console.log(this.items);
         const root = this.element.querySelector('.departments') as HTMLElement;
         const content = this.element.querySelector('.departments__links-wrapper') as HTMLElement;
 
@@ -88,6 +95,8 @@ export class DepartmentsComponent implements OnInit, OnDestroy {
                 }
             });
         }
+
+     
     }
 
     ngOnDestroy(): void {
