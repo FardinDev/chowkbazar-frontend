@@ -1,4 +1,4 @@
-@import 'theme-variables';
+@import './themes/theme-orange/theme-variables';
 @import 'custom-variables';
 
 
@@ -733,6 +733,8 @@
       $product-card-badge-new-color:         #fff                                     !default;
       $product-card-badge-hot-bg:            #614ba6                                  !default;
       $product-card-badge-hot-color:         #fff                                     !default;
+      $product-card-badge-featured-bg:       $accent-color                              !default;
+      $product-card-badge-featured-color:    #fff                                     !default;
 
       $product-card-quickview-color:         #ccc                                     !default;
       $product-card-quickview-default-bg:    $accent-color                            !default;

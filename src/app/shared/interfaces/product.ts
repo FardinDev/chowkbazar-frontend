@@ -17,7 +17,7 @@ export interface ProductFeaturesSection {
 export interface ProductAttributeValue {
     name: string;
     slug: string;
-    customFields: CustomFields;
+    customFields?: CustomFields;
 }
 
 export interface ProductAttribute {
@@ -25,14 +25,18 @@ export interface ProductAttribute {
     slug: string;
     featured: boolean;
     values: ProductAttributeValue[];
-    customFields: CustomFields;
+    customFields?: CustomFields;
 }
 
 export interface Product {
     id: number;
     slug: string;
     name: string;
+    // price: number;
     price: number;
+    start_price?: number;
+    end_price?: number;
+    minimum_orders?: string;
     compareAtPrice: number|null;
     images: string[];
     badges: string[];
@@ -42,5 +46,6 @@ export interface Product {
     brand: Brand|null;
     categories: Category[];
     attributes: ProductAttribute[];
+    tags?: string[];
     customFields: CustomFields;
 }

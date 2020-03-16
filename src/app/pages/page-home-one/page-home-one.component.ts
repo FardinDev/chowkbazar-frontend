@@ -64,25 +64,25 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
             products: [],
             groups: [
                 {
-                    name: 'All',
+                    name: 'All Featured',
                     current: true,
-                    products$: this.shop.getFeaturedProducts(null, 8),
+                    products$: this.shop.getFeaturedProducts(null, 10),
                 },
-                {
-                    name: 'Power Tools',
-                    current: false,
-                    products$: this.shop.getFeaturedProducts('power-tools', 8),
-                },
-                {
-                    name: 'Hand Tools',
-                    current: false,
-                    products$: this.shop.getFeaturedProducts('hand-tools', 8),
-                },
-                {
-                    name: 'Plumbing',
-                    current: false,
-                    products$: this.shop.getFeaturedProducts('plumbing', 8),
-                },
+                // {
+                //     name: 'Power Tools',
+                //     current: false,
+                //     products$: this.shop.getFeaturedProducts('power-tools', 8),
+                // },
+                // {
+                //     name: 'Hand Tools',
+                //     current: false,
+                //     products$: this.shop.getFeaturedProducts('hand-tools', 8),
+                // },
+                // {
+                //     name: 'Apparel,Textiles & Accessories ',
+                //     current: false,
+                //     products$: this.shop.getFeaturedProducts('plumbing', 8),
+                // },
             ],
         };
         this.groupChange(this.featuredProducts, this.featuredProducts.groups[0]);
@@ -115,7 +115,7 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
             ],
         };
         this.groupChange(this.latestProducts, this.latestProducts.groups[0]);
-        console.log(this.latestProducts);
+        // console.log(this.latestProducts);
     }
 
     ngOnDestroy(): void {

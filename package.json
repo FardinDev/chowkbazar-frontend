@@ -33,6 +33,8 @@
     "express": "^4.17.1",
     "ng5-slider": "^1.2.4",
     "ngx-bootstrap": "^5.3.2",
+    "ngx-ellipsis": "^2.1.2",
+    "ngx-multi-line-ellipsis": "^1.0.4",
     "ngx-owl-carousel-o": "^2.0.3",
     "ngx-toastr": "^11.3.3",
     "photoswipe": "^4.1.3",

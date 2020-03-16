@@ -8,6 +8,7 @@ export const navigation: NavigationLink[] = [
             {label: 'Home 2', url: '/home-two'}
         ]
     }},
+    {label: 'Products', url: '/shop/catalog/power-tools'},
     {label: 'Megamenu', url: '/shop/catalog', menu: {
         type: 'megamenu',
         size: 'nl',
@@ -106,5 +107,5 @@ export const navigation: NavigationLink[] = [
             {label: 'Typography',           url: '/site/typography'}
         ]
     }},
-    {label: 'Buy Theme', url: 'https://themeforest.net/item/stroyka-tools-store-angular-7-template/23523630', external: true}
+    // {label: 'Buy Theme', url: 'https://themeforest.net/item/stroyka-tools-store-angular-7-template/23523630', external: true}
 ];

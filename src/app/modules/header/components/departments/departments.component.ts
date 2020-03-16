@@ -35,7 +35,7 @@ export class DepartmentsComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
        this.shop.getDepartments().subscribe(val => { 
-           console.log(val);
+        //    console.log(val);
         this.items = val});
         // console.log('hi');
         // console.log(this.items);

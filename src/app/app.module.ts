@@ -21,7 +21,8 @@ import { HeaderModule } from './modules/header/header.module';
 import { MobileModule } from './modules/mobile/mobile.module';
 import { SharedModule } from './shared/shared.module';
 import { WidgetsModule } from './modules/widgets/widgets.module';
-import { CountToModule } from 'angular-count-to';
+
+
 
 // components
 import { AppComponent } from './app.component';
@@ -55,6 +56,7 @@ import { AnimatedDigitComponent } from './animated-digit/animated-digit.componen
         // modules (third-party)
         CarouselModule,
         ToastrModule.forRoot(),
+
         // modules
         AppRoutingModule,
         BlocksModule,
@@ -62,8 +64,7 @@ import { AnimatedDigitComponent } from './animated-digit/animated-digit.componen
         HeaderModule,
         MobileModule,
         SharedModule,
-        WidgetsModule,
-        CountToModule
+        WidgetsModule
         
     ],
     providers: [

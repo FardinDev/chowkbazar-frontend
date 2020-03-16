@@ -75,7 +75,7 @@ export const attributesDef: AttributeDef[] = [
 
 const productsDef: ProductDef[] = [
     {
-        slug: 'electric-planer-brandix-kl370090g-300-watts',
+        slug: 'original-xiaomi-mijia-electric-shaver-2-floating-head-portable-waterproof-razor-shavers-usb-rechargeable-steel-mens',
         name: 'Electric Planer Brandix KL370090G 300 Watts',
         price: 749,
         images: [

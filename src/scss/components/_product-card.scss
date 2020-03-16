@@ -154,6 +154,13 @@
             #{$margin-inline-start}: 9px;
         }
     }
+    .product-card__minimum-orders{
+        font-size: 13px;
+        line-height: 1;
+        color: $rating-legend-font-color;
+        padding-top: 1px;
+
+    }
 .product-card__prices {
     margin-top: 14px;
     line-height: 1;
@@ -257,6 +264,11 @@
 .product-card__badge--hot {
     background: $product-card-badge-hot-bg;
     color: $product-card-badge-hot-color;
+}
+
+.product-card__badge--featured {
+    background: $product-card-badge-featured-bg;
+    color: $product-card-badge-featured-color;
 }
 
 

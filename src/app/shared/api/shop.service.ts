@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from '../interfaces/category';
 import { NavigationLink } from '../interfaces/navigation-link';
+import { Slider } from '../interfaces/slider';
 import { HttpClient } from '@angular/common/http';
 import { Brand } from '../interfaces/brand';
 import { Product } from '../interfaces/product';
@@ -37,6 +38,7 @@ export class ShopService {
         private http: HttpClient,
     ) { }
 
+    url = 'http://localhost:8000';
     /**
      * Returns category object by slug.
      *
@@ -44,8 +46,14 @@ export class ShopService {
      */
 
     getDepartments(): Observable<NavigationLink[]> {
-        return this.http.get<NavigationLink[]>(`http://localhost:8000/api/categories`);
+        return this.http.get<NavigationLink[]>(this.url+`/api/categories`);
     }
+
+    getSliders(): Observable<Slider[]>{
+        return this.http.get<Slider[]>(this.url+`/api/sliders`);
+    }
+
+
     getCategory(slug: string): Observable<Category> {
         /**
          * This is what your API endpoint might look like:
@@ -277,7 +285,9 @@ export class ShopService {
         // return this.http.get<Product[]>('https://example.com/api/shop/products/featured.json', {params});
 
         // This is for demonstration purposes only. Remove it and use the code above.
-        return getFeatured(categorySlug, limit);
+        // return getFeatured(categorySlug, limit);
+        return this.http.get<Product[]>(this.url+`/api/featured`);
+
     }
 
     getLatestProducts(categorySlug: string = null, limit: number = null): Observable<Product[]> {
