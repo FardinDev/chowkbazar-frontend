@@ -3,8 +3,9 @@
     <div class="container">
         <div class="row">
             <div *ngIf="withDepartments" class="col-3 d-lg-block d-none" appDepartmentsArea></div>
-            <div class="col-12" [ngClass]="{'col-lg-12': !withDepartments, 'col-lg-9': withDepartments}">
+            <div class="col-12" [ngClass]="{'col-lg-12': !withDepartments, 'col-lg-9': withDepartments, 'block-slideshow--loading': loading}">
                 <div class="block-slideshow__body">
+                    <div class="block-slideshow__preloader"></div>
                     <owl-carousel-o *ngIf="slides?.length" [options]="options" appOwlPreventClick>
                         <ng-template *ngFor="let slide of slides" carouselSlide>
                             <!-- <a class="block-slideshow__slide" href="" appClick> -->

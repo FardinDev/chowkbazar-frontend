@@ -48,4 +48,5 @@ export interface Product {
     attributes: ProductAttribute[];
     tags?: string[];
     customFields: CustomFields;
+    views?: number;
 }

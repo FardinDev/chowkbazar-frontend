@@ -46,14 +46,17 @@
                 <div class="product__rating-stars">
                     <app-rating [value]="product.rating"></app-rating>
                 </div>
-                <div class="product__rating-legend">
-                    <a href="" appClick>{{ product.reviews }} Reviews</a><span>/</span><a href="" appClick>Write A Review</a>
+                <div *ngIf='!product.views' class="product__rating-legend">
+                    <a href="javascript:void(0)" appClick>{{ product.reviews }} Reviews</a><span>/</span><a href="" appClick>Write A Review</a>
+                </div>
+                <div *ngIf='product.views' class="product__rating-legend">
+                    <a href="javascript:void(0)" >{{ product.views }} Views</a>
                 </div>
             </div>
-            <div class="product__description">
+            <!-- <div class="product__description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh
                 lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.
-            </div>
+            </div> -->
             <ul class="product__features">
                 <li>Speed: 750 RPM</li>
                 <li>Power Source: Cordless-Electric</li>
@@ -61,10 +64,14 @@
                 <li>Voltage: 20 Volts</li>
                 <li>Battery Capacity: 2 Ah</li>
             </ul>
-            <ul class="product__meta">
-                <li class="product__meta-availability">Availability: <span class="text-success">In Stock</span></li>
-                <li>Brand: <a href="" appClick>Wakita</a></li>
-                <li>SKU: 83690/32</li>
+            <ul *ngIf="featuredAttributes.length" class="product__meta">
+                <li *ngFor="let attribute of featuredAttributes">
+                    {{ attribute.name }}:
+                    <ng-container *ngFor="let value of attribute.values; let last = last">
+                        {{ value.name }}<ng-container *ngIf="!last">, </ng-container>
+                    </ng-container>
+                </li>
+                
             </ul>
         </div>
         <!-- .product__info / end -->
@@ -74,18 +81,31 @@
                 Availability: <span class="text-success">In Stock</span>
             </div>
 
-            <div class="product__prices">
+            <div class="product__prices mb-0">
                 <ng-container *ngIf="product.compareAtPrice">
+                    <span class="product-card__new-price">{{ product.price }}</span>{{ ' ' }}
+                    <span class="product-card__old-price">{{ product.compareAtPrice }}</span>
+                </ng-container>
+                <ng-container *ngIf="product.start_price">
+                   BDT {{ product.start_price }} - {{ product.end_price }}
+                </ng-container>
+                <ng-container *ngIf="!product.compareAtPrice && !product.start_price">
+                    {{ product.price|currencyFormat }}
+                </ng-container>
+                <!-- <ng-container *ngIf="product.compareAtPrice">
                     <span class="product__new-price">{{ product.price|currencyFormat }}</span>{{ ' ' }}
                     <span class="product__old-price">{{ product.compareAtPrice|currencyFormat }}</span>
                 </ng-container>
                 <ng-container *ngIf="!product.compareAtPrice">
                     {{ product.price|currencyFormat }}
-                </ng-container>
+                </ng-container> -->
+            </div>
+            <div class="product__rating" *ngIf="product.minimum_orders">
+                <div class="product-card__minimum-orders">Minimum Orders: {{product.minimum_orders}}</div>
             </div>
             <!-- .product__options -->
             <form class="product__options">
-                <div class="form-group product__option">
+                <!-- <div class="form-group product__option">
                     <label class="product__option-label">Color</label>
                     <div class="input-radio-color">
                         <div class="input-radio-color__list">
@@ -107,8 +127,8 @@
                             </label>
                         </div>
                     </div>
-                </div>
-                <div class="form-group product__option">
+                </div> -->
+                <!-- <div class="form-group product__option">
                     <label class="product__option-label">Material</label>
                     <div class="input-radio-label">
                         <div class="input-radio-label__list">
@@ -126,7 +146,7 @@
                             </label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="form-group product__option">
                     <label class="product__option-label">Quantity</label>
                     <div class="product__actions">
@@ -158,23 +178,31 @@
             <!-- .product__options / end -->
         </div>
         <!-- .product__end -->
-        <div class="product__footer">
-            <div class="product__tags tags">
+        <div  class="product__footer">
+            <div *ngIf="!product.tags" class="product__tags tags">
+                <label class="product__option-label">Tags</label>
                 <div class="tags__list">
                     <a href="" appClick>Mounts</a>
                     <a href="" appClick>Electrodes</a>
                     <a href="" appClick>Chainsaws</a>
                 </div>
             </div>
+            
+            <div *ngIf="product.tags" class="product__tags tags">
+                <label class="product__option-label">Tags</label>
+                <div class="tags__list">
+                    <a *ngFor="let tag of product.tags" href="" appClick> {{ tag }} </a>
+                </div>
+            </div>
 
-            <div class="product__share-links share-links">
+            <!-- <div class="product__share-links share-links">
                 <ul class="share-links__list">
                     <li class="share-links__item share-links__item--type--like"><a href="" appClick>Like</a></li>
                     <li class="share-links__item share-links__item--type--tweet"><a href="" appClick>Tweet</a></li>
                     <li class="share-links__item share-links__item--type--pin"><a href="" appClick>Pin It</a></li>
                     <li class="share-links__item share-links__item--type--counter"><a href="" appClick>4K</a></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

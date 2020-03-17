@@ -5,7 +5,7 @@
 @import '../functions';
 @import '../mixins/buttons';
 @import '../mixins/direction';
-
+@import '../mixins/preloader';
 
 $local-dots-height: 18px;
 $local-dots-padding: 4px;
@@ -65,6 +65,33 @@ $local-dot-size: $local-dots-height - $local-dots-padding * 2;
         color: inherit;
     }
 }
+
+.block-slideshow__preloader {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: $block-products-carousel-preloader-bg;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, visibility 0s .3s;
+
+    &:after {
+        @include preloader(100px);
+    }
+}
+
+.block-slideshow--loading .block-slideshow__preloader {
+    transition-delay: 0s, 0s;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
 .block-slideshow__slide-image {
     position: absolute;
     left: 0;

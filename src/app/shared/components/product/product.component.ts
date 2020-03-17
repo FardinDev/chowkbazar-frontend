@@ -1,5 +1,5 @@
 import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { Product } from '../../interfaces/product';
+import { Product, ProductAttribute } from '../../interfaces/product';
 import { CarouselComponent, SlidesOutputData } from 'ngx-owl-carousel-o';
 import { FormControl } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
@@ -29,6 +29,7 @@ export class ProductComponent implements OnInit {
 
     showGallery = true;
     showGalleryTimeout: number;
+    featuredAttributes: ProductAttribute[] = [];
 
     @ViewChild('featuredCarousel', { read: CarouselComponent }) featuredCarousel: CarouselComponent;
     @ViewChild('thumbnailsCarousel', { read: CarouselComponent }) thumbnailsCarousel: CarouselComponent;
@@ -52,6 +53,7 @@ export class ProductComponent implements OnInit {
 
     @Input() set product(value: Product) {
         this.dataProduct = value;
+        this.featuredAttributes = !value ? [] : value.attributes.filter(x => x.featured);
         this.images = value ? this.dataProduct.images.map((url, index) => {
             return {
                 id: index.toString(),

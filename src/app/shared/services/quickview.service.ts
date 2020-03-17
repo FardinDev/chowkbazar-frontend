@@ -16,7 +16,7 @@ export class QuickviewService implements OnDestroy {
 
     show(product: Product): Observable<void> {
         // timer only for demo
-        return timer(1000).pipe(map(() => {
+        return timer(500).pipe(map(() => {
             this.showSubject$.next(product);
         }));
     }

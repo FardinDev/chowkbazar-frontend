@@ -11,10 +11,12 @@ export class BlockProductsComponent {
     @Input() products: any[] = [];
 
     get large(): any {
-        if (this.layout === 'large-first' && this.products.length > 0) {
-            return this.products[0];
-        } else if (this.layout === 'large-last' && this.products.length > 6) {
-            return this.products[6];
+        if(this.products){
+            if (this.layout === 'large-first' && this.products.length > 0) {
+                return this.products[0];
+            } else if (this.layout === 'large-last' && this.products.length > 6) {
+                return this.products[6];
+            }
         }
 
         return null;

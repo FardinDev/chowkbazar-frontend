@@ -11,6 +11,7 @@ import { ShopService } from '../../../shared/api/shop.service';
 })
 export class BlockSlideshowComponent {
     @Input() withDepartments = false;
+    @Input() loading = false;
 
     options = {
         nav: false,
@@ -55,9 +56,11 @@ export class BlockSlideshowComponent {
     ) { }
 
     ngOnInit(): void {
+        this.loading = true;
         this.shop.getSliders().subscribe(val => { 
             // console.log(val);
             this.slides = val;
+            this.loading = false;
         });
     }
 }

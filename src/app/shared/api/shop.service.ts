@@ -218,7 +218,8 @@ export class ShopService {
         // return this.http.get<Product[]>('https://example.com/api/shop/products/bestsellers.json', {params});
 
         // This is for demonstration purposes only. Remove it and use the code above.
-        return getBestsellers(limit);
+        // return getBestsellers(limit);
+        return this.http.get<Product[]>(this.url+`/api/most-viewed?take=`+limit);
     }
 
     getTopRated(limit: number = null): Observable<Product[]> {

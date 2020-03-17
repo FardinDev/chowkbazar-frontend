@@ -27,6 +27,8 @@ interface ProductsCarouselData {
 export class PageHomeOneComponent implements OnInit, OnDestroy {
     destroy$: Subject<void> = new Subject<void>();
     bestsellers$: Observable<Product[]>;
+    bestsellersLarge: [];
+    bestsellersSmalls: [];
     brands$: Observable<Brand[]>;
     popularCategories$: Observable<Category[]>;
 
@@ -45,6 +47,8 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.bestsellers$ = this.shop.getBestsellers(7);
+        
+        // console.log(this.bestsellers$.subscribe(val =>  {console.log(val[0]);}));
         this.brands$ = this.shop.getPopularBrands();
         this.popularCategories$ = this.shop.getCategoriesBySlug([
             'power-tools',

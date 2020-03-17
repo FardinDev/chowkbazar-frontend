@@ -77,6 +77,24 @@ $item-padding: 14px;
         transform: rotateX(0deg);
     }
 }
+.nav-links__item {
+    & > .active {
+        & > span {
+            background: $nav-links-item-hover-bg;
+            box-shadow: $nav-links-item-hover-shadow;
+        }
+
+        svg {
+            fill: $nav-links-item-hover-arrow-color;
+        }
+
+        & > span {
+            transition-duration: .1s;
+        }
+    
+}
+}
+
 .nav-links__item--menu {
     position: relative;
 }

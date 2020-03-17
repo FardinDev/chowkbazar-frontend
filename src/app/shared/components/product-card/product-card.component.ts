@@ -19,14 +19,15 @@ export class ProductCardComponent implements OnInit, OnDestroy, OnChanges {
     private destroy$: Subject<void> = new Subject();
 
     @Input() product: Product;
+    @Input() type: string;
     @Input() layout: 'grid-sm'|'grid-nl'|'grid-lg'|'list'|'horizontal'|null = null;
 
     addingToCart = false;
     addingToWishlist = false;
     addingToCompare = false;
     showingQuickview = false;
-    featuredAttributes: ProductAttribute[] = [];
-
+    featuredAttributes: ProductAttribute[] = []; 
+ 
     constructor(
         private cd: ChangeDetectorRef,
         public root: RootService,

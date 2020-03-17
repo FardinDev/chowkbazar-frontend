@@ -1,52 +1,53 @@
 import { NavigationLink } from '../app/shared/interfaces/navigation-link';
 
 export const navigation: NavigationLink[] = [
-    {label: 'Home', url: '/', menu: {
-        type: 'menu',
-        items: [
-            {label: 'Home 1', url: '/'},
-            {label: 'Home 2', url: '/home-two'}
-        ]
-    }},
-    {label: 'Products', url: '/shop/catalog/power-tools'},
-    {label: 'Megamenu', url: '/shop/catalog', menu: {
-        type: 'megamenu',
-        size: 'nl',
-        columns: [
-            {size: 6, items: [
-                {label: 'Power Tools', url: '/shop/catalog', items: [
-                    {label: 'Engravers', url: '/shop/catalog'},
-                    {label: 'Wrenches', url: '/shop/catalog'},
-                    {label: 'Wall Chaser', url: '/shop/catalog'},
-                    {label: 'Pneumatic Tools', url: '/shop/catalog'}
-                ]},
-                {label: 'Machine Tools', url: '/shop/catalog', items: [
-                    {label: 'Thread Cutting', url: '/shop/catalog'},
-                    {label: 'Chip Blowers', url: '/shop/catalog'},
-                    {label: 'Sharpening Machines', url: '/shop/catalog'},
-                    {label: 'Pipe Cutters', url: '/shop/catalog'},
-                    {label: 'Slotting machines', url: '/shop/catalog'},
-                    {label: 'Lathes', url: '/shop/catalog'}
-                ]}
-            ]},
-            {size: 6, items: [
-                {label: 'Hand Tools', url: '/shop/catalog', items: [
-                    {label: 'Screwdrivers', url: '/shop/catalog'},
-                    {label: 'Handsaws', url: '/shop/catalog'},
-                    {label: 'Knives', url: '/shop/catalog'},
-                    {label: 'Axes', url: '/shop/catalog'},
-                    {label: 'Multitools', url: '/shop/catalog'},
-                    {label: 'Paint Tools', url: '/shop/catalog'}
-                ]},
-                {label: 'Garden Equipment', url: '/shop/catalog', items: [
-                    {label: 'Motor Pumps', url: '/shop/catalog'},
-                    {label: 'Chainsaws', url: '/shop/catalog'},
-                    {label: 'Electric Saws', url: '/shop/catalog'},
-                    {label: 'Brush Cutters', url: '/shop/catalog'}
-                ]}
-            ]}
-        ]
-    }},
+    // {label: 'Home', url: '/', menu: {
+    //     type: 'menu',
+    //     items: [
+    //         {label: 'Home 1', url: '/'},
+    //         {label: 'Home 2', url: '/home-two'}
+    //     ]
+    // }},
+    {label: 'Home', url: '/'},
+    {label: 'Products', url: '/shop/catalog'},
+    // {label: 'Megamenu', url: '/shop/catalog', menu: {
+    //     type: 'megamenu',
+    //     size: 'nl',
+    //     columns: [
+    //         {size: 6, items: [
+    //             {label: 'Power Tools', url: '/shop/catalog', items: [
+    //                 {label: 'Engravers', url: '/shop/catalog'},
+    //                 {label: 'Wrenches', url: '/shop/catalog'},
+    //                 {label: 'Wall Chaser', url: '/shop/catalog'},
+    //                 {label: 'Pneumatic Tools', url: '/shop/catalog'}
+    //             ]},
+    //             {label: 'Machine Tools', url: '/shop/catalog', items: [
+    //                 {label: 'Thread Cutting', url: '/shop/catalog'},
+    //                 {label: 'Chip Blowers', url: '/shop/catalog'},
+    //                 {label: 'Sharpening Machines', url: '/shop/catalog'},
+    //                 {label: 'Pipe Cutters', url: '/shop/catalog'},
+    //                 {label: 'Slotting machines', url: '/shop/catalog'},
+    //                 {label: 'Lathes', url: '/shop/catalog'}
+    //             ]}
+    //         ]},
+    //         {size: 6, items: [
+    //             {label: 'Hand Tools', url: '/shop/catalog', items: [
+    //                 {label: 'Screwdrivers', url: '/shop/catalog'},
+    //                 {label: 'Handsaws', url: '/shop/catalog'},
+    //                 {label: 'Knives', url: '/shop/catalog'},
+    //                 {label: 'Axes', url: '/shop/catalog'},
+    //                 {label: 'Multitools', url: '/shop/catalog'},
+    //                 {label: 'Paint Tools', url: '/shop/catalog'}
+    //             ]},
+    //             {label: 'Garden Equipment', url: '/shop/catalog', items: [
+    //                 {label: 'Motor Pumps', url: '/shop/catalog'},
+    //                 {label: 'Chainsaws', url: '/shop/catalog'},
+    //                 {label: 'Electric Saws', url: '/shop/catalog'},
+    //                 {label: 'Brush Cutters', url: '/shop/catalog'}
+    //             ]}
+    //         ]}
+    //     ]
+    // }},
     {label: 'Shop', url: '/shop/catalog/power-tools', menu: {
         type: 'menu',
         items: [

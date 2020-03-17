@@ -17,7 +17,7 @@
             </span>
         </ng-template>
 
-        <a *ngIf="!item.external" [routerLink]="item.url" [target]="item.target"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
+        <a *ngIf="!item.external" [routerLink]="item.url" [routerLinkActiveOptions]="{ exact: true }" [routerLinkActive]="['active']" [target]="item.target"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
         <a *ngIf="item.external" [href]="item.url" [target]="item.target"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
 
         <div *ngIf="item.menu && item.menu.type == 'menu'" class="nav-links__menu">
