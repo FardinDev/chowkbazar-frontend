@@ -29,6 +29,7 @@ import { PostCardComponent } from './components/post-card/post-card.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductComponent } from './components/product/product.component';
 import { QuickviewComponent } from './components/quickview/quickview.component';
+import { QueryComponent } from './components/query/query.component';
 import { RatingComponent } from './components/rating/rating.component';
 
 // pipes
@@ -58,6 +59,7 @@ import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
         ProductCardComponent,
         ProductComponent,
         QuickviewComponent,
+        QueryComponent,
         RatingComponent,
         // pipes
         CurrencyFormatPipe,
@@ -95,6 +97,7 @@ import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
         ProductCardComponent,
         ProductComponent,
         QuickviewComponent,
+        QueryComponent,
         RatingComponent,
         // pipes
         ColorTypePipe,

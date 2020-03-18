@@ -4,6 +4,7 @@ import { Product, ProductAttribute } from '../../interfaces/product';
 import { WishlistService } from '../../services/wishlist.service';
 import { CompareService } from '../../services/compare.service';
 import { QuickviewService } from '../../services/quickview.service';
+import { QueryService } from '../../services/query.service';
 import { RootService } from '../../services/root.service';
 import { CurrencyService } from '../../services/currency.service';
 import { takeUntil } from 'rxjs/operators';
@@ -26,6 +27,7 @@ export class ProductCardComponent implements OnInit, OnDestroy, OnChanges {
     addingToWishlist = false;
     addingToCompare = false;
     showingQuickview = false;
+    showingQuery = false;
     featuredAttributes: ProductAttribute[] = []; 
  
     constructor(
@@ -35,6 +37,7 @@ export class ProductCardComponent implements OnInit, OnDestroy, OnChanges {
         public wishlist: WishlistService,
         public compare: CompareService,
         public quickview: QuickviewService,
+        public query: QueryService,
         public currency: CurrencyService
     ) { }
 
@@ -106,6 +109,18 @@ export class ProductCardComponent implements OnInit, OnDestroy, OnChanges {
         this.quickview.show(this.product).subscribe({
             complete: () => {
                 this.showingQuickview = false;
+                this.cd.markForCheck();
+            }
+        });
+    }
+    showQuery(): void {
+       
+
+        this.showingQuery = true;
+        this.query.show(this.product).subscribe({
+            
+            complete: () => {
+                this.showingQuery = false;
                 this.cd.markForCheck();
             }
         });

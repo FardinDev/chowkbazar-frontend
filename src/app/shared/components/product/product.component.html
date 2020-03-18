@@ -4,7 +4,8 @@
         <div class="product__gallery">
             <div class="product-gallery" *ngIf="showGallery">
                 <div class="product-gallery__featured">
-                    <owl-carousel-o [options]="carouselOptions" (changed)="featuredCarouselTranslated($event)" appOwlPreventClick #featuredCarousel>
+                    <owl-carousel-o [options]="carouselOptions" (changed)="featuredCarouselTranslated($event)"
+                        appOwlPreventClick #featuredCarousel>
                         <ng-template *ngFor="let image of images" carouselSlide [id]="image.id">
                             <a appClick (click)="openPhotoSwipe($event, image);" [href]="image.url" target="_blank">
                                 <img [src]="image.url" alt="" #imageElement>
@@ -13,15 +14,17 @@
                     </owl-carousel-o>
                 </div>
                 <div class="product-gallery__carousel">
-                    <owl-carousel-o [options]="thumbnailsCarouselOptions" [appFakeSlides]="images.length" #fakeSlides="appFakeSlides" appOwlPreventClick #thumbnailsCarousel>
+                    <owl-carousel-o [options]="thumbnailsCarouselOptions" [appFakeSlides]="images.length"
+                        #fakeSlides="appFakeSlides" appOwlPreventClick #thumbnailsCarousel>
                         <ng-template *ngFor="let image of images" carouselSlide [id]="image.id">
                             <span class="product-gallery__carousel-item"
-                               [ngClass]="{'product-gallery__carousel-item--active': image.active}"
-                               appClick (click)="featuredCarousel.to(image.id); setActiveImage(image)">
+                                [ngClass]="{'product-gallery__carousel-item--active': image.active}" appClick
+                                (click)="featuredCarousel.to(image.id); setActiveImage(image)">
                                 <img class="product-gallery__carousel-image" [src]="image.url" alt="">
                             </span>
                         </ng-template>
-                        <ng-template *ngFor="let i of fakeSlides.slides" carouselSlide [id]="'fake-slide-'+i"></ng-template>
+                        <ng-template *ngFor="let i of fakeSlides.slides" carouselSlide [id]="'fake-slide-'+i">
+                        </ng-template>
                     </owl-carousel-o>
                 </div>
             </div>
@@ -30,14 +33,14 @@
         <!-- .product__info -->
         <div class="product__info">
             <div class="product__wishlist-compare">
-                <button type="button" class="btn btn-sm btn-light btn-svg-icon" data-toggle="tooltip" data-placement="right" title="Wishlist"
-                        appClick (click)="addToWishlist()"
-                        [ngClass]="{'btn-loading': addingToWishlist}">
+                <button type="button" class="btn btn-sm btn-light btn-svg-icon" data-toggle="tooltip"
+                    data-placement="right" title="Wishlist" appClick (click)="addToWishlist()"
+                    [ngClass]="{'btn-loading': addingToWishlist}">
                     <app-icon name="wishlist-16" size="16"></app-icon>
                 </button>
-                <button type="button" class="btn btn-sm btn-light btn-svg-icon" data-toggle="tooltip" data-placement="right" title="Compare"
-                        appClick (click)="addToCompare()"
-                        [ngClass]="{'btn-loading': addingToCompare}">
+                <button type="button" class="btn btn-sm btn-light btn-svg-icon" data-toggle="tooltip"
+                    data-placement="right" title="Compare" appClick (click)="addToCompare()"
+                    [ngClass]="{'btn-loading': addingToCompare}">
                     <app-icon name="compare-16" size="16"></app-icon>
                 </button>
             </div>
@@ -47,10 +50,11 @@
                     <app-rating [value]="product.rating"></app-rating>
                 </div>
                 <div *ngIf='!product.views' class="product__rating-legend">
-                    <a href="javascript:void(0)" appClick>{{ product.reviews }} Reviews</a><span>/</span><a href="" appClick>Write A Review</a>
+                    <a href="javascript:void(0)" appClick>{{ product.reviews }} Reviews</a><span>/</span><a href=""
+                        appClick>Write A Review</a>
                 </div>
                 <div *ngIf='product.views' class="product__rating-legend">
-                    <a href="javascript:void(0)" >{{ product.views }} Views</a>
+                    <a href="javascript:void(0)">{{ product.views }} Views</a>
                 </div>
             </div>
             <!-- <div class="product__description">
@@ -71,7 +75,7 @@
                         {{ value.name }}<ng-container *ngIf="!last">, </ng-container>
                     </ng-container>
                 </li>
-                
+
             </ul>
         </div>
         <!-- .product__info / end -->
@@ -87,7 +91,7 @@
                     <span class="product-card__old-price">{{ product.compareAtPrice }}</span>
                 </ng-container>
                 <ng-container *ngIf="product.start_price">
-                   BDT {{ product.start_price }} - {{ product.end_price }}
+                    BDT {{ product.start_price }} - {{ product.end_price }}
                 </ng-container>
                 <ng-container *ngIf="!product.compareAtPrice && !product.start_price">
                     {{ product.price|currencyFormat }}
@@ -147,11 +151,15 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="form-group product__option">
+                <!-- <div class="form-group product__option">
                     <label class="product__option-label">Quantity</label>
                     <div class="product__actions">
                         <div class="product__actions-item">
                             <app-input-number aria-label="Quantity" class="product__quantity" size="lg" [min]="1" [formControl]="quantity"></app-input-number>
+                        </div>
+                        <div class="product__actions-item">
+                            <input class="form-control form-control-lg input-number__input" type="text"
+                            (blur)="onTouched()" #userName>
                         </div>
                         <div class="product__actions-item product__actions-item--addtocart">
                             <button type="button" class="btn btn-primary btn-lg"
@@ -173,12 +181,17 @@
                             </button>
                         </div>
                     </div>
+                </div> -->
+
+                <div class="product__actions-item product__actions-item--addtocart ml-0">
+                    <button type="button" class="btn btn-primary btn-lg" [ngClass]="{'btn-loading': showingQuery}" appClick (click)="showQuery()">Send
+                        Query</button>
                 </div>
             </form>
             <!-- .product__options / end -->
         </div>
         <!-- .product__end -->
-        <div  class="product__footer">
+        <div class="product__footer">
             <div *ngIf="!product.tags" class="product__tags tags">
                 <label class="product__option-label">Tags</label>
                 <div class="tags__list">
@@ -187,7 +200,7 @@
                     <a href="" appClick>Chainsaws</a>
                 </div>
             </div>
-            
+
             <div *ngIf="product.tags" class="product__tags tags">
                 <label class="product__option-label">Tags</label>
                 <div class="tags__list">
@@ -206,3 +219,67 @@
         </div>
     </div>
 </div>
+
+<ng-template #template class="second">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left my-auto"><img [src]="images[0].url" class="product-modal-image"></h4>
+        <div class="modal-header-text my-auto">
+            <h6 class="modal-title ml-2">{{product.name}}</h6>
+            <span class="modal-subtitle ml-2">
+                <ng-container *ngIf="product.start_price">
+                    BDT {{ product.start_price }} - {{ product.end_price }}
+                </ng-container>
+                <ng-container *ngIf="!product.compareAtPrice && !product.start_price">
+                    {{ product.price|currencyFormat }}
+                </ng-container>
+            </span>
+            <div class="ml-2" *ngIf="product.minimum_orders">
+                <span class="product-card__minimum-orders">Minimum Orders: {{product.minimum_orders}}</span>
+            </div>
+            <div class="ml-2" *ngIf="!product.minimum_orders">
+                <span class="product-card__minimum-orders">Minimum Orders: 50 pcs</span>
+            </div>
+
+        </div>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <app-icon name="cross-20" size="20"></app-icon>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h6 class="modal-title ml-2 text-center">Send Your Query Below</h6>
+        <form #queryForm="ngForm" (ngSubmit)="queryForm.form.valid && onSubmit(queryForm)" autocomplete="off">
+            <div class="form-group">
+                <label>Name<span class="text-danger"> *</span></label>
+                <input type="text" name="name" class="form-control" [(ngModel)]="model.name" #name="ngModel"
+                    [ngClass]="{ 'is-invalid': queryForm.submitted && name.invalid }" required autocapitalize>
+                <div class="invalid-feedback" *ngIf="queryForm.submitted && name.invalid">
+                    <p *ngIf="name.errors.required">Name is required</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Phone or Email<span class="text-danger"> *</span></label>
+                <input type="text" class="form-control" name="phoneOrEmail" [(ngModel)]="model.phoneOrEmail"
+                    #phoneOrEmail="ngModel" [ngClass]="{ 'is-invalid': queryForm.submitted && phoneOrEmail.invalid }"
+                    pattern="^(?:\+?88|0088)?01[13-9]\d{8}|\w+@\w+\.\w{2,3}$" phoneOrEmail required>
+                <div *ngIf="queryForm.submitted && phoneOrEmail.invalid" class="invalid-feedback">
+                    <div *ngIf="phoneOrEmail.errors.required">Phone or Email is required</div>
+                    <div *ngIf="phoneOrEmail.errors.pattern">Phone or Email is invalid</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Query<span class="text-danger"> *</span></label>
+                <textarea name="" class="form-control" name="query" id="" [(ngModel)]="model.query" #query="ngModel"
+                    [ngClass]="{ 'is-invalid': queryForm.submitted && query.invalid }" query required></textarea>
+                <div *ngIf="queryForm.submitted && query.invalid" class="invalid-feedback">
+                    <div *ngIf="query.errors.required">Query is required</div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">Submit</button>
+            </div>
+        </form>
+    </div>
+</ng-template>

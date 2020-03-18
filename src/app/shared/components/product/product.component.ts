@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren, TemplateRef} from '@angular/core';
 import { Product, ProductAttribute } from '../../interfaces/product';
 import { CarouselComponent, SlidesOutputData } from 'ngx-owl-carousel-o';
 import { FormControl } from '@angular/forms';
@@ -9,12 +9,20 @@ import { isPlatformBrowser } from '@angular/common';
 import { OwlCarouselOConfig } from 'ngx-owl-carousel-o/lib/carousel/owl-carousel-o-config';
 import { PhotoSwipeService } from '../../services/photo-swipe.service';
 import { DirectionService } from '../../services/direction.service';
-
+import { QueryService } from '../../services/query.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 interface ProductImage {
     id: string;
     url: string;
     active: boolean;
 }
+
+export class Query {
+    public name: string;
+    public phoneOrEmail: string;
+    public query: string;
+   
+  }
 
 export type Layout = 'standard'|'sidebar'|'columnar'|'quickview';
 
@@ -24,17 +32,25 @@ export type Layout = 'standard'|'sidebar'|'columnar'|'quickview';
     styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+    modalRef: BsModalRef;
     private dataProduct: Product;
     private dataLayout: Layout = 'standard';
 
     showGallery = true;
+    showingQuery = false;
     showGalleryTimeout: number;
     featuredAttributes: ProductAttribute[] = [];
+    model = new Query();
+    modalConfig = {
+        backdrop: true,
+        ignoreBackdropClick: true
+      };
+
 
     @ViewChild('featuredCarousel', { read: CarouselComponent }) featuredCarousel: CarouselComponent;
     @ViewChild('thumbnailsCarousel', { read: CarouselComponent }) thumbnailsCarousel: CarouselComponent;
     @ViewChildren('imageElement', {read: ElementRef}) imageElements: QueryList<ElementRef>;
-
+    @Input() pattern: string | RegExp
     @Input() set layout(value: Layout) {
         this.dataLayout = value;
 
@@ -102,7 +118,9 @@ export class ProductComponent implements OnInit {
         private wishlist: WishlistService,
         private compare: CompareService,
         private photoSwipe: PhotoSwipeService,
-        private direction: DirectionService
+        private direction: DirectionService,
+        private modalService: BsModalService,
+        public query: QueryService,
     ) { }
 
     ngOnInit(): void {
@@ -204,4 +222,27 @@ export class ProductComponent implements OnInit {
             });
         }
     }
+
+    onTouched = () => { };
+    
+    showQuery(): void {
+       
+
+        this.showingQuery = true;
+        this.query.show(this.product).subscribe({
+            
+            complete: () => {
+                this.showingQuery = false;
+                // this.cd.markForCheck();
+            }
+        });
+    }
+
+    queryModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template, this.modalConfig);
+    }
+    
+    onSubmit(form) {
+        console.log(form.value)
+      }
 }
