@@ -312,6 +312,9 @@
         width: 120px;
         padding: 16px;
     }
+    .product__tags{
+        display: none;
+    }
     .product-card__badges-list {
         top: 10px;
 
@@ -363,6 +366,9 @@
 @mixin product-card-horizontal-sm() {
     .product-card__image {
         width: 110px;
+    }
+    .product-card__rating {
+        display: none;
     }
     .product-card__rating {
         display: none;

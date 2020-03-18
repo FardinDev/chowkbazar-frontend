@@ -34,8 +34,8 @@ export interface Product {
     name: string;
     // price: number;
     price: number;
-    start_price?: number;
-    end_price?: number;
+    start_price?: string;
+    end_price?: string;
     minimum_orders?: string;
     compareAtPrice: number|null;
     images: string[];

@@ -102,7 +102,7 @@ export class ShopService {
      * @param slugs - Array of slugs.
      * @param depth - Maximum depth of category tree.
      */
-    getCategoriesBySlug(slugs: string[], depth: number = 0): Observable<Category[]> {
+    getCategoriesBySlug(slugs: string[] = null, depth: number = 0): Observable<Category[]> {
         /**
          * This is what your API endpoint might look like:
          *
@@ -117,7 +117,8 @@ export class ShopService {
         //     depth: depth.toString(),
         // };
         //
-        // return this.http.get<Category[]>('https://example.com/api/shop/categories.json', {params});
+
+        return this.http.get<Category[]>(this.url+`/api/category-by-slugs`);
 
         // This is for demonstration purposes only. Remove it and use the code above.
         return getShopCategoriesBySlugs(slugs, depth);
@@ -287,7 +288,7 @@ export class ShopService {
 
         // This is for demonstration purposes only. Remove it and use the code above.
         // return getFeatured(categorySlug, limit);
-        return this.http.get<Product[]>(this.url+`/api/featured`);
+        return this.http.get<Product[]>(this.url+`/api/featured?take=`+limit);
 
     }
 
@@ -311,6 +312,8 @@ export class ShopService {
         // }
         //
         // return this.http.get<Product[]>('https://example.com/api/shop/products/latest.json', {params});
+        return this.http.get<Product[]>(this.url+`/api/new-arrival`);
+
 
         // This is for demonstration purposes only. Remove it and use the code above.
         return getLatestProducts(categorySlug, limit);

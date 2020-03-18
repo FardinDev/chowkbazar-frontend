@@ -50,14 +50,7 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
         
         // console.log(this.bestsellers$.subscribe(val =>  {console.log(val[0]);}));
         this.brands$ = this.shop.getPopularBrands();
-        this.popularCategories$ = this.shop.getCategoriesBySlug([
-            'power-tools',
-            'hand-tools',
-            'machine-tools',
-            'power-machinery',
-            'measurement',
-            'clothes-and-ppe',
-        ], 1);
+        this.popularCategories$ = this.shop.getCategoriesBySlug();
         this.columnTopRated$ = this.shop.getTopRated(3);
         this.columnSpecialOffers$ = this.shop.getSpecialOffers(3);
         this.columnBestsellers$ = this.shop.getBestsellers(3);
@@ -97,25 +90,25 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
             products: [],
             groups: [
                 {
-                    name: 'All',
+                    name: 'New',
                     current: true,
                     products$: this.shop.getLatestProducts(null, 8),
                 },
-                {
-                    name: 'Power Tools',
-                    current: false,
-                    products$: this.shop.getLatestProducts('power-tools', 8),
-                },
-                {
-                    name: 'Hand Tools',
-                    current: false,
-                    products$: this.shop.getLatestProducts('hand-tools', 8),
-                },
-                {
-                    name: 'Plumbing',
-                    current: false,
-                    products$: this.shop.getLatestProducts('plumbing', 8),
-                },
+                // {
+                //     name: 'Power Tools',
+                //     current: false,
+                //     products$: this.shop.getLatestProducts('power-tools', 8),
+                // },
+                // {
+                //     name: 'Hand Tools',
+                //     current: false,
+                //     products$: this.shop.getLatestProducts('hand-tools', 8),
+                // },
+                // {
+                //     name: 'Plumbing',
+                //     current: false,
+                //     products$: this.shop.getLatestProducts('plumbing', 8),
+                // },
             ],
         };
         this.groupChange(this.latestProducts, this.latestProducts.groups[0]);
