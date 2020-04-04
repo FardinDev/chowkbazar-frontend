@@ -242,7 +242,5 @@ export class ProductComponent implements OnInit {
         this.modalRef = this.modalService.show(template, this.modalConfig);
     }
     
-    onSubmit(form) {
-        console.log(form.value)
-      }
+
 }

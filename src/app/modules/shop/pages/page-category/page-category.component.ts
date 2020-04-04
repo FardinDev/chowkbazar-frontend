@@ -84,6 +84,7 @@ export class PageCategoryComponent implements OnDestroy {
             }),
             takeUntil(this.destroy$),
         ).subscribe(list => {
+           
             this.pageService.setList(list);
             this.pageService.setIsLoading(false);
         });

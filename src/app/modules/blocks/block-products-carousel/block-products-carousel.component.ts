@@ -27,6 +27,8 @@ export class BlockProductsCarouselComponent implements OnChanges {
         nav: false,
         dots: false,
         loop: true,
+        autoplay: true,
+        autoplayTimeout: 4000,
         stagePadding: 1,
         rtl: this.direction.isRTL()
     };

@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
             code: 'BDT',
             // display: 'symbol',
             // digitsInfo: '1.2-2',
-            // locale: 'en-US'
+            // locale: 'en-US' 
         };
 
         this.router.events.subscribe((event) => {

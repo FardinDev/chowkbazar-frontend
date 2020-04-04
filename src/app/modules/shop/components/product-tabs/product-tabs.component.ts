@@ -1,8 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { products } from './../../../../../fake-server/database/products';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductFeaturesSection} from '../../../../shared/interfaces/product';
 import { specification } from '../../../../../data/shop-product-spec';
 import { reviews } from '../../../../../data/shop-product-reviews';
 import { Review } from '../../../../shared/interfaces/review';
+import { ShopService } from '../../../../shared/api/shop.service';
 
 @Component({
     selector: 'app-product-tabs',
@@ -12,9 +14,21 @@ import { Review } from '../../../../shared/interfaces/review';
 export class ProductTabsComponent {
     @Input() withSidebar = false;
     @Input() tab: 'description'|'specification'|'reviews' = 'description';
+    @Input() description = '';
 
     specification: ProductFeaturesSection[] = specification;
     reviews: Review[] = reviews;
 
-    constructor() { }
+
+
+    constructor(
+        private shop : ShopService,
+    ) { }
+
+    OnInit(){
+
+      
+        
+
+    }
 }

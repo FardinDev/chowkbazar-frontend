@@ -26,34 +26,49 @@ interface ProductsCarouselData {
 })
 export class PageHomeOneComponent implements OnInit, OnDestroy {
     destroy$: Subject<void> = new Subject<void>();
-    bestsellers$: Observable<Product[]>;
-    bestsellersLarge: [];
-    bestsellersSmalls: [];
+    mostviewed$: Observable<Product[]>;
+    mostviewedLarge: [];
+    mostviewedSmalls: [];
     brands$: Observable<Brand[]>;
     popularCategories$: Observable<Category[]>;
 
-    columnTopRated$: Observable<Product[]>;
-    columnSpecialOffers$: Observable<Product[]>;
-    columnBestsellers$: Observable<Product[]>;
+    columnFeatured$: Observable<Product[]>;
+    columnLatest$: Observable<Product[]>;
+    columnMostViewed$: Observable<Product[]>;
+
+    slides = [];
 
     posts = posts;
 
     featuredProducts: ProductsCarouselData;
     latestProducts: ProductsCarouselData;
 
+    sliderLoading = true;
+
     constructor(
         private shop: ShopService,
     ) { }
 
     ngOnInit(): void {
-        this.bestsellers$ = this.shop.getBestsellers(7);
+
+      this.shop.getSliders().subscribe(val => { 
+            // console.log(val);
+            this.slides = val;
+
+            this.sliderLoading = false;
+            
+        });
+
+        this.mostviewed$ = this.shop.getMostViewed(7);
         
-        // console.log(this.bestsellers$.subscribe(val =>  {console.log(val[0]);}));
+        // console.log(this.mostviewed$.subscribe(val =>  {console.log(val[0]);}));
         this.brands$ = this.shop.getPopularBrands();
+
         this.popularCategories$ = this.shop.getCategoriesBySlug();
-        this.columnTopRated$ = this.shop.getTopRated(3);
-        this.columnSpecialOffers$ = this.shop.getSpecialOffers(3);
-        this.columnBestsellers$ = this.shop.getBestsellers(3);
+
+        this.columnFeatured$ = this.shop.getFeaturedProducts(null, 3);
+        this.columnLatest$ = this.shop.getLatestProducts(null, 3);
+        this.columnMostViewed$ = this.shop.getMostViewed(3);
 
         this.featuredProducts = {
             abort$: new Subject<void>(),
@@ -63,7 +78,7 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
                 {
                     name: 'All Featured',
                     current: true,
-                    products$: this.shop.getFeaturedProducts(null, 10),
+                    products$: this.shop.getFeaturedProducts(null, 15),
                 },
                 // {
                 //     name: 'Power Tools',

@@ -1,3 +1,4 @@
+import { products } from './../../../../../fake-server/database/products';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../../shared/interfaces/product';
 import { ActivatedRoute } from '@angular/router';
@@ -13,6 +14,7 @@ export class PageProductComponent implements OnInit {
     relatedProducts$: Observable<Product[]>;
 
     product: Product;
+    description: any;
     layout: 'standard'|'columnar'|'sidebar' = 'standard';
     sidebarPosition: 'start'|'end' = 'start'; // For LTR scripts "start" is "left" and "end" is "right"
 
@@ -22,12 +24,23 @@ export class PageProductComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+       
+
         this.route.data.subscribe(data => {
             this.layout = data.layout || this.layout;
             this.sidebarPosition = data.sidebarPosition || this.sidebarPosition;
             this.product = data.product;
 
             this.relatedProducts$ = this.shop.getRelatedProducts(data.product);
+            
+            this.shop.getProductDetails(data.product.slug).subscribe(val => { 
+                this.description = val.text;
+    
+            });
         });
+
+
+
+
     }
 }

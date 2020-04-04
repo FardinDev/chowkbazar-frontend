@@ -25,7 +25,7 @@
     </div>
     <div class="modal-body">
         <h6 class="modal-title ml-2 text-center">Send Your Query Below</h6>
-        <!-- <form #queryForm="ngForm" (ngSubmit)="queryForm.form.valid && onSubmit(queryForm)" autocomplete="off">
+        <form #queryForm="ngForm" (ngSubmit)="queryForm.form.valid && onSubmit(queryForm)" autocomplete="off">
             <div class="form-group">
                 <label>Name<span class="text-danger"> *</span></label>
                 <input type="text" name="name" class="form-control" [(ngModel)]="model.name" #name="ngModel"
@@ -56,9 +56,9 @@
 
 
             <div class="form-group">
-                <button class="btn btn-primary btn-block">Submit</button>
+                <button class="btn btn-primary btn-block" [ngClass]="{'btn-loading': storingQuery}"  >Submit Query</button>
             </div>
-        </form> -->
+        </form>
     </div>
 </ng-template>
 

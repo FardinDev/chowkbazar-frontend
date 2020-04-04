@@ -12,11 +12,13 @@ import { ShopService } from '../../../shared/api/shop.service';
 export class BlockSlideshowComponent {
     @Input() withDepartments = false;
     @Input() loading = false;
-
+    @Input() slides = [];
+    
     options = {
         nav: false,
         dots: true,
         loop: true,
+        autoplay: true,
         responsive: {
             0: {items: 1}
         },
@@ -47,7 +49,7 @@ export class BlockSlideshowComponent {
     //     }
     // ];
 
-    slides = [];
+
 
     constructor(
         public sanitizer: DomSanitizer,
@@ -56,11 +58,7 @@ export class BlockSlideshowComponent {
     ) { }
 
     ngOnInit(): void {
-        this.loading = true;
-        this.shop.getSliders().subscribe(val => { 
-            // console.log(val);
-            this.slides = val;
-            this.loading = false;
-        });
+        // this.loading = true;
+      
     }
 }

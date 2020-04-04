@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from '../interfaces/category';
@@ -22,6 +23,7 @@ import {
     getBrands,
     getProductsList,
 } from '../../../fake-server';
+import { json } from 'express';
 
 export interface ListOptions {
     page?: number;
@@ -30,6 +32,12 @@ export interface ListOptions {
     filterValues?: SerializedFilterValues;
 }
 
+export interface Description {
+    text: any;
+}
+export interface queryObj {
+    status: string;
+}
 @Injectable({
     providedIn: 'root'
 })
@@ -51,6 +59,17 @@ export class ShopService {
 
     getSliders(): Observable<Slider[]>{
         return this.http.get<Slider[]>(this.url+`/api/sliders`);
+    }
+
+    storeQuery(id: number, name: string, phoneOrEmail: string, query: string): Observable<queryObj>{
+   
+        const params: {[param: string]: any} = {};
+        params.product_id = id; 
+        params.name = name; 
+        params.phone_number = phoneOrEmail; 
+        params.query = query; 
+
+        return this.http.post<queryObj>(this.url+`/api/store-query`, {params});
     }
 
 
@@ -135,7 +154,7 @@ export class ShopService {
      * @param options.sort    - The algorithm by which the list should be sorted (optional).
      * @param options.filters - An object whose keys are filter slugs and values ​​are filter values (optional).
      */
-    getProductsList(categorySlug: string|null, options: ListOptions): Observable<ProductsList> {
+    getProductsList(categorySlug: string|null, options: any|ListOptions): Observable<ProductsList> {
         /**
          * This is what your API endpoint might look like:
          *
@@ -148,26 +167,35 @@ export class ShopService {
          * - sort         = options.sort
          * - filter_price = options.filters.price
          */
-        // const params: {[param: string]: string} = {};
-        //
-        // if (categorySlug) {
-        //     params.category = categorySlug;
-        // }
-        // if ('page' in options) {
-        //     params.page = options.page.toString();
-        // }
-        // if ('limit' in options) {
-        //     params.limit = options.limit.toString();
-        // }
-        // if ('sort' in options) {
-        //     params.sort = options.sort;
-        // }
-        //
-        // Object.keys(options.filters).forEach(slug => params[`filter_${slug}`] = options.filters[slug]);
+        const params: {[param: string]: string} = {};
+        
+        if (categorySlug) {
+            params.category = categorySlug;
+        }
+        if ('page' in options) {
+            params.page = options.page.toString();
+        }
+        if ('limit' in options) {
+            params.limit = options.limit.toString();
+        }
+        if ('sort' in options) {
+            params.sort = options.sort;
+        }
+        if (options.filterValues) {
+            
+            Object.keys(options.filterValues).forEach(slug => params[`filter_${slug}`] = options.filterValues[slug]);
+        }
+        
+
+        // console.log('====================================');
+        // getProductsList(categorySlug, options).subscribe(val => console.log(JSON.stringify(val)));
+        // console.log('====================================');
         //
         // return this.http.get<ProductsList>('https://example.com/api/products.json', {params});
 
         // This is for demonstration purposes only. Remove it and use the code above.
+
+        return this.http.get<ProductsList>(this.url+`/api/get-product-list`, {params});
         return getProductsList(categorySlug, options);
     }
 
@@ -183,7 +211,26 @@ export class ShopService {
         // return this.http.get<Product>(`https://example.com/api/products/${productSlug}.json`);
 
         // This is for demonstration purposes only. Remove it and use the code above.
-        return getProduct(productSlug);
+        // return getProduct(productSlug);
+        return this.http.get<Product>(this.url+`/api/get-product/${productSlug}`);
+
+    }
+
+    getProductDetails(productSlug: string): Observable<Description> {
+        /**
+         * This is what your API endpoint might look like:
+         *
+         * https://example.com/api/products/electric-planer-brandix-kl370090g-300-watts.json
+         *
+         * where:
+         * - electric-planer-brandix-kl370090g-300-watts = productSlug
+         */
+        // return this.http.get<Product>(`https://example.com/api/products/${productSlug}.json`);
+
+        // This is for demonstration purposes only. Remove it and use the code above.
+        // return getProduct(productSlug);
+        return this.http.get<Description>(this.url+`/api/get-product-description/`+productSlug);
+
     }
 
     /**
@@ -201,6 +248,28 @@ export class ShopService {
         return getBrands();
     }
 
+    getMostViewed(limit: number = null): Observable<Product[]> {
+        /**
+         * This is what your API endpoint might look like:
+         *
+         * https://example.com/api/shop/products/bestsellers.json?limit=3
+         *
+         * where:
+         * - limit = limit
+         */
+        const params: {[param: string]: string} = {};
+        
+        if (limit) {
+            params.limit = limit.toString();
+        }
+        //
+        // return this.http.get<Product[]>('https://example.com/api/shop/products/bestsellers.json', {params});
+
+        // This is for demonstration purposes only. Remove it and use the code above.
+        // return getBestsellers(limit);
+        return this.http.get<Product[]>(this.url+`/api/most-viewed`, {params});
+    }
+
     getBestsellers(limit: number = null): Observable<Product[]> {
         /**
          * This is what your API endpoint might look like:
@@ -210,18 +279,19 @@ export class ShopService {
          * where:
          * - limit = limit
          */
-        // const params: {[param: string]: string} = {};
-        //
-        // if (limit) {
-        //     params.limit = limit.toString();
-        // }
+        const params: {[param: string]: string} = {};
+        
+        if (limit) {
+            params.limit = limit.toString();
+        }
         //
         // return this.http.get<Product[]>('https://example.com/api/shop/products/bestsellers.json', {params});
 
         // This is for demonstration purposes only. Remove it and use the code above.
         // return getBestsellers(limit);
-        return this.http.get<Product[]>(this.url+`/api/most-viewed?take=`+limit);
+        return this.http.get<Product[]>(this.url+`/api/most-viewed`, {params});
     }
+
 
     getTopRated(limit: number = null): Observable<Product[]> {
         /**
@@ -275,20 +345,20 @@ export class ShopService {
          * - category = categorySlug
          * - limit    = limit
          */
-        // const params: {[param: string]: string} = {};
-        //
-        // if (category) {
-        //     params.category = category;
-        // }
-        // if (limit) {
-        //     params.limit = limit.toString();
-        // }
+        const params: {[param: string]: string} = {};
+        
+        if (categorySlug) {
+            params.category = categorySlug;
+        }
+        if (limit) {
+            params.limit = limit.toString();
+        }
         //
         // return this.http.get<Product[]>('https://example.com/api/shop/products/featured.json', {params});
 
         // This is for demonstration purposes only. Remove it and use the code above.
         // return getFeatured(categorySlug, limit);
-        return this.http.get<Product[]>(this.url+`/api/featured?take=`+limit);
+        return this.http.get<Product[]>(this.url+`/api/featured`, {params});
 
     }
 
@@ -302,21 +372,20 @@ export class ShopService {
          * - category = categorySlug
          * - limit    = limit
          */
-        // const params: {[param: string]: string} = {};
-        //
-        // if (category) {
-        //     params.category = category;
-        // }
-        // if (limit) {
-        //     params.limit = limit.toString();
-        // }
+        const params: {[param: string]: string} = {};
+        
+        if (categorySlug) {
+            params.category = categorySlug;
+        }
+        if (limit) {
+            params.limit = limit.toString();
+        }
         //
         // return this.http.get<Product[]>('https://example.com/api/shop/products/latest.json', {params});
-        return this.http.get<Product[]>(this.url+`/api/new-arrival`);
-
-
+        return this.http.get<Product[]>(this.url+`/api/new-arrival`, {params});
+        
         // This is for demonstration purposes only. Remove it and use the code above.
-        return getLatestProducts(categorySlug, limit);
+        // return getLatestProducts(categorySlug, limit);
     }
 
     getRelatedProducts(product: Partial<Product>): Observable<Product[]> {
@@ -328,13 +397,15 @@ export class ShopService {
          * where:
          * - for = product.slug
          */
-        // const params: {[param: string]: string} = {
-        //     for: product.slug,
-        // };
-        //
-        // return this.http.get<Product[]>('https://example.com/api/shop/products/related.json', {params});
+        const params: {[param: string]: string} = {
+                for: product.slug,
+                limit: '12',
+            };
+            //
+            // return this.http.get<Product[]>('https://example.com/api/shop/products/related.json', {params});
+            return this.http.get<Product[]>(this.url+`/api/get-related-products`, {params});
 
         // This is for demonstration purposes only. Remove it and use the code above.
-        return getRelatedProducts(product);
+        // return getRelatedProducts(product);
     }
 }
