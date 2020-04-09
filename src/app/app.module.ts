@@ -33,7 +33,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 
 import { AnimatedDigitComponent } from './animated-digit/animated-digit.component';
-
+// import { Location, LocationStrategy, HashLocationStrategy  } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -69,6 +69,7 @@ import { AnimatedDigitComponent } from './animated-digit/animated-digit.componen
     ],
     providers: [
         // { provide: LOCALE_ID, useValue: 'it' }
+    //    Location, {provide : LocationStrategy , useClass: HashLocationStrategy}
     ],
     bootstrap: [AppComponent]
 })

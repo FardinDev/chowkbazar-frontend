@@ -47,6 +47,7 @@ export class ShopService {
     ) { }
 
     url = 'http://localhost:8000';
+    defaultPage = 1;
     /**
      * Returns category object by slug.
      *
@@ -85,7 +86,14 @@ export class ShopService {
         // return this.http.get<Category>(`https://example.com/api/shop/categories/${slug}.json`);
 
         // This is for demonstration purposes only. Remove it and use the code above.
-        return getShopCategory(slug);
+        // console.log('category');
+        // getShopCategory(slug).subscribe(val => {
+        //     console.log(val);
+        // });
+        // console.log('====================================');
+
+        return this.http.get<Category>(this.url+`/api/category-by-slug/${slug}`);
+        // return getShopCategory(slug);
     }
 
     /**
@@ -174,6 +182,7 @@ export class ShopService {
         }
         if ('page' in options) {
             params.page = options.page.toString();
+            this.defaultPage = options.page;
         }
         if ('limit' in options) {
             params.limit = options.limit.toString();
@@ -186,16 +195,18 @@ export class ShopService {
             Object.keys(options.filterValues).forEach(slug => params[`filter_${slug}`] = options.filterValues[slug]);
         }
         
-
-        // console.log('====================================');
-        // getProductsList(categorySlug, options).subscribe(val => console.log(JSON.stringify(val)));
-        // console.log('====================================');
+        console.log(params);
+        console.log('====================================');
+        this.http.post(this.url+`/api/get-product-list?page=`+this.defaultPage, {params}).subscribe(val => {
+            console.log(val);
+        });
+        console.log('====================================');
         //
         // return this.http.get<ProductsList>('https://example.com/api/products.json', {params});
 
         // This is for demonstration purposes only. Remove it and use the code above.
 
-        return this.http.get<ProductsList>(this.url+`/api/get-product-list`, {params});
+        return this.http.post<ProductsList>(this.url+`/api/get-product-list?page=`+this.defaultPage, {params});
         return getProductsList(categorySlug, options);
     }
 

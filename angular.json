@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/stroyka/browser",
+            "outputPath": "dist/chowkbazar/v-1.0",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -294,6 +294,9 @@
             },
             "theme-black-production": {
               "browserTarget": "stroyka:build:theme-black-production"
+            },
+            "theme-orange-production": {
+              "browserTarget": "stroyka:build:theme-orange-production"
             }
           }
         },
