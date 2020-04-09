@@ -4,10 +4,12 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class StoreService {
-    address = '715 Fake Street, New York 10021 USA';
-    email = 'stroyka@example.com';
-    phone = ['(800) 060-0730', '(800) 060-0730'];
-    hours = 'Mon-Sat 10:00pm - 7:00pm';
+    address = 'Office: House - 91, Road - 9/A (New), Dhanmondi, Dhaka - 1209';
+    email = 'chowkbazarbd@gmail.com';
+    phone = ['(+88) 01727-288419'];
+    facebook = 'https://www.facebook.com/chowkbazarbd';
+    facebook_group = 'https://www.facebook.com/groups/cbbdcommunity';
+    // hours = 'Mon-Sat 10:00pm - 7:00pm';
 
     get primaryPhone(): string|null {
         return this.phone.length > 0 ? this.phone[0] : null;

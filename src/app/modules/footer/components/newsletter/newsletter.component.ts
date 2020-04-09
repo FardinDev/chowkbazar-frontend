@@ -1,3 +1,4 @@
+import { StoreService } from './../../../../shared/services/store.service';
 import { Component } from '@angular/core';
 import { theme } from '../../../../../data/theme';
 
@@ -9,5 +10,5 @@ import { theme } from '../../../../../data/theme';
 export class NewsletterComponent {
     theme = theme;
 
-    constructor() { }
+    constructor(public store: StoreService) { }
 }

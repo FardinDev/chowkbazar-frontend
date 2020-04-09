@@ -4,6 +4,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 import { RootComponent } from './components/root/root.component';
+import { SourceProductComponent } from './modules/shop/pages/source-product/source-product.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,11 @@ const routes: Routes = [
                 path: '',
                 pathMatch: 'full',
                 component: PageHomeOneComponent
+            },
+            {
+                path: 'source-products',
+                pathMatch: 'full',
+                component: SourceProductComponent
             },
             {
                 path: 'shop',

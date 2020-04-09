@@ -10,7 +10,7 @@ export const navigation: NavigationLink[] = [
     // }},
     {label: 'Home', url: '/'},
     {label: 'Products', url: '/shop/catalog'},
-    {label: 'Source Products', url: '/shop/catalog'},
+    {label: 'Source Products', url: '/source-products'},
     // {label: 'Megamenu', url: '/shop/catalog', menu: {
     //     type: 'megamenu',
     //     size: 'nl',
