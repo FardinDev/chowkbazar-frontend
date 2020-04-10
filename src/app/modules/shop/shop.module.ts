@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // modules (third-party)
 import { CarouselModule } from 'ngx-owl-carousel-o';
-
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 // modules
 import { BlocksModule } from '../blocks/blocks.module';
 import { SharedModule } from '../../shared/shared.module';
@@ -55,6 +55,7 @@ import { SourceProductComponent } from './pages/source-product/source-product.co
         ReactiveFormsModule,
         // modules (third-party)
         CarouselModule,
+        TooltipModule.forRoot(),
         // modules
         BlocksModule,
         SharedModule,

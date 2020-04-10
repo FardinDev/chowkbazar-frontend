@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 // modules (third-party)
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 // directives
 import { ClickDirective } from './directives/click.directive';
@@ -74,7 +75,8 @@ import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
         RouterModule,
         // modules (third-party)
         CarouselModule,
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        TooltipModule.forRoot(),
     ],
     exports: [
         // directives

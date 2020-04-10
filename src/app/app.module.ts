@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // modules (third-party)
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ToastrModule } from 'ngx-toastr';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
@@ -56,6 +57,7 @@ import { AnimatedDigitComponent } from './animated-digit/animated-digit.componen
         // modules (third-party)
         CarouselModule,
         ToastrModule.forRoot(),
+        TooltipModule.forRoot(),
 
         // modules
         AppRoutingModule,

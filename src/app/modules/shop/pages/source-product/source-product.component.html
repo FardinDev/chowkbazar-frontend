@@ -9,33 +9,154 @@
             <div class="col-md-12 d-flex">
                 <div class="card flex-grow-1 mb-md-0">
                     <div class="card-body">
-                        <h3 class="card-title">Login</h3>
-                        <form>
-                            <div class="form-group">
-                                <label>Email address</label>
-                                <input type="email" class="form-control" placeholder="Enter email">
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
-                                <small class="form-text text-muted">
-                                    <a href="">Forgotten Password</a>
-                                </small>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <span class="form-check-input input-check">
-                                        <span class="input-check__body">
-                                            <input class="input-check__input" type="checkbox" id="login-remember">
-                                            <span class="input-check__box"></span>
-                                            <app-icon class="input-check__icon" name="check-9x7" size="9x7"></app-icon>
-                                        </span>
-                                    </span>
-                                    <label class="form-check-label" for="login-remember">Remember Me</label>
+                        <div class="row">
+                            <form class="form-horizontal col-lg-12 col-md-12" enctype="multipart/form-data" #sourceProductForm="ngForm" (ngSubmit)="sourceProductForm.form.valid && onSubmit(sourceProductForm)" autocomplete="off">
+                              
+                                <!-- Form Name -->
+                    
+                    
+                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-md-4 col-lg-3 col-lg-3 control-label m-auto" for="name">Your Name<span style="color:red"> *</span></div>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="name" id="name" type="text" placeholder="Enter Your Name"
+                                            class="form-control input-md" [(ngModel)]="model.name" #name="ngModel"
+                                            [ngClass]="{ 'is-invalid': sourceProductForm.submitted && name.invalid, 'is-valid': sourceProductForm.submitted && !name.invalid }" required autocapitalize>
+                                            <div class="invalid-feedback" *ngIf="sourceProductForm.submitted && name.invalid">
+                                                <p *ngIf="name.errors.required">Name is required</p>
+                                            </div>
+                                            <div class="valid-feedback">
+                                                <p>Looks Good</p>
+                                            </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary mt-2 mt-md-3 mt-lg-4">Login</button>
-                        </form>
+                    
+                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-md-4 col-lg-3 control-label m-auto" for="phoneOrEmail">Your Phone or Email<span style="color:red"> *</span></div>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="text" class="form-control" name="phoneOrEmail" id="phoneOrEmail" placeholder="Enter Your Phone no. or Email ID" [(ngModel)]="model.phoneOrEmail"
+                                        #phoneOrEmail="ngModel" [ngClass]="{ 'is-invalid': sourceProductForm.submitted && phoneOrEmail.invalid, 'is-valid': sourceProductForm.submitted && !phoneOrEmail.invalid }"
+                                        pattern="^(?:\+?88|0088)?01[13-9]\d{8}|\w+@\w+\.\w{2,3}$" phoneOrEmail required>
+                                        <div *ngIf="sourceProductForm.submitted && phoneOrEmail.invalid" class="invalid-feedback">
+                                            <div *ngIf="phoneOrEmail.errors.required">Phone or Email is required</div>
+                                            <div *ngIf="phoneOrEmail.errors.pattern">Phone or Email is invalid</div>
+                                        </div>
+                                        <div class="valid-feedback">
+                                            <p>Looks Good</p>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-md-4 col-lg-3 control-label m-auto" for="productName">Product Name<span style="color:red"> *</span></div>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="productName" id="productName" type="text" placeholder="Enter Product Name"
+                                            class="form-control input-md" [(ngModel)]="model.productName" #productName="ngModel"
+                                            [ngClass]="{ 'is-invalid': sourceProductForm.submitted && productName.invalid, 'is-valid': sourceProductForm.submitted && !productName.invalid }" required autocapitalize>
+                                            <div class="invalid-feedback" *ngIf="sourceProductForm.submitted && productName.invalid">
+                                                <p *ngIf="productName.errors.required">Product Name is required</p>
+                                            </div>
+                                            <div class="valid-feedback">
+                                                <p>Looks Good</p>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-md-4 col-lg-3 control-label m-auto" for="productQuantity">Product Quantity<span style="color:red"> *</span></div>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="productQuantity" id="productQuantity" type="text" placeholder="Enter Product Quantity"
+                                            class="form-control input-md" [(ngModel)]="model.productQuantity" #productQuantity="ngModel"
+                                            [ngClass]="{ 'is-invalid': sourceProductForm.submitted && productQuantity.invalid, 'is-valid': sourceProductForm.submitted && !productQuantity.invalid }" required autocapitalize>
+                                            <div class="invalid-feedback" *ngIf="sourceProductForm.submitted && productQuantity.invalid">
+                                                <p *ngIf="productQuantity.errors.required">Product Quantity is required</p>
+                                            </div>
+                                            <div class="valid-feedback">
+                                                <p>Looks Good</p>
+                                            </div>
+                                    </div>
+                                </div>
+                    
+                                <!-- Textarea -->
+                                <div class="form-group row">
+                                    <div class="col-md-4 col-lg-3 control-label m-auto" for="productDescription">Product Description<span style="color:red"> *</span></div>
+                                    <div class="col-md-8 col-lg-9">
+                                        <textarea name="productDescription" id="productDescription" type="text" placeholder="Enter Product Description"
+                                        class="form-control input-md" [(ngModel)]="model.productDescription" #productDescription="ngModel"
+                                        [ngClass]="{ 'is-invalid': sourceProductForm.submitted && productDescription.invalid, 'is-valid': sourceProductForm.submitted && !productDescription.invalid }" required autocapitalize></textarea>
+                                        <div class="invalid-feedback" *ngIf="sourceProductForm.submitted && productDescription.invalid">
+                                            <p *ngIf="productDescription.errors.required">Product Description is required</p>
+                                        </div>
+                                        <div class="valid-feedback">
+                                            <p>Looks Good</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group row">
+                                    <div class="col-md-4 col-lg-3 control-label m-auto" for="alibabaUrl">Alibaba URL</div>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input name="alibabaUrl" type="url" id="alibabaUrl" placeholder="Paste Product URL (if any)"
+                                            class="form-control input-md" [(ngModel)]="model.alibabaUrl" #alibabaUrl="ngModel"
+                                            [ngClass]="{ 'is-invalid': sourceProductForm.submitted && alibabaUrl.invalid, 'is-valid': sourceProductForm.submitted && !alibabaUrl.invalid }" pattern="https://.*" autocapitalize>
+                                            <div class="invalid-feedback" *ngIf="sourceProductForm.submitted && alibabaUrl.invalid">
+                                                <div *ngIf="alibabaUrl.errors.pattern">URL is invalid</div>
+                                            </div>
+                                            <div class="valid-feedback">
+                                                <p>Looks Good</p>
+                                            </div>
+                    
+                                    </div>
+                                </div>
+
+                                <div class="form-group row pl-3 pr-3" *ngIf="previews.length < 5">
+                                    <div class="custom-file">
+                                        <input type="file" name="images[]" class="custom-file-input" accept="image/x-png,image/gif,image/jpeg" multiple
+                                        (change)='onImageChange($event)' [(ngModel)]="model.images" #images="ngModel">
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose Maximum 5 Images</label>
+                                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                      </div>
+                                </div>
+                                <!-- File Button -->
+                                <!-- <div class="form-group row">
+                                    <label class="col-md-12 text-center" for="file" style="
+                                        /* margin: 27px; */
+                                        /* margin: 42px 0; */
+                                        padding: 42px 0;
+                                        border-top: 1px dotted;
+                                        border-bottom: 1px dotted;
+                                        cursor:pointer;
+                                    ">Click Here To Select image(s)</label>
+                                    <div class="col-md-4 col-lg-3 file-loading">
+                                        <input id="file" name="file[]" class="file" accept="image/x-png,image/gif,image/jpeg" type="file"
+                                            multiple>
+                                        <div class="help-block">
+                                            Maximum 5 Images
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div *ngIf="previews.length > 0" class="bd-example bd-example-images mb-4">
+                                    <button type="button" class="close" aria-label="Close" tooltip="Clear Images" placement="bottom" (click)="clearImages()">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    <img *ngFor='let url of previews'  [src]="url" class="img-thumbnail m-2" width="200px" > 
+                                </div>
+                    
+                                <!-- Button -->
+
+                                <div class="form-group row justify-content-center">
+                            
+                                    <div class="col-md-6 my-auto">
+                                        <button type="submit"  class="btn btn-primary btn-lg pull-right col-md-12" [ngClass]="{'btn-loading': submitted}">Submit</button>
+                                    </div>
+                                </div>
+                    
+                    
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
