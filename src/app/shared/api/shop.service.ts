@@ -100,8 +100,8 @@ export class ShopService {
         // });
         // console.log('====================================');
 
-        return this.http.get<Category>(this.url+`/api/category-by-slug/${slug}`);
-        // return getShopCategory(slug);
+        // return this.http.get<Category>(this.url+`/api/category-by-slug/${slug}`);
+        return getShopCategory(slug);
     }
 
     /**
@@ -198,12 +198,11 @@ export class ShopService {
         if ('sort' in options) {
             params.sort = options.sort;
         }
-        if (options.filterValues) {
-            
+        if ('filterValues' in options) {
             Object.keys(options.filterValues).forEach(slug => params[`filter_${slug}`] = options.filterValues[slug]);
         }
         
-        console.log(params);
+        // console.log(params);
         console.log('====================================');
         this.http.post(this.url+`/api/get-product-list?page=`+this.defaultPage, {params}).subscribe(val => {
             console.log(val);
@@ -215,7 +214,7 @@ export class ShopService {
         // This is for demonstration purposes only. Remove it and use the code above.
 
         return this.http.post<ProductsList>(this.url+`/api/get-product-list?page=`+this.defaultPage, {params});
-        return getProductsList(categorySlug, options);
+        // return getProductsList(categorySlug, options);
     }
 
     getProduct(productSlug: string): Observable<Product> {

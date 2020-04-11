@@ -57,6 +57,7 @@ export class PageCategoryComponent implements OnDestroy {
                 ]);
             }
 
+
             this.pageService.setList(data.products);
 
             this.columns = 'columns' in data ? data.columns : this.columns;
@@ -73,6 +74,7 @@ export class PageCategoryComponent implements OnDestroy {
             }),
             mergeMap(() => {
                 this.updateUrl();
+                
                 this.pageService.setIsLoading(true);
 
                 return this.shop.getProductsList(
@@ -84,7 +86,6 @@ export class PageCategoryComponent implements OnDestroy {
             }),
             takeUntil(this.destroy$),
         ).subscribe(list => {
-           
             this.pageService.setList(list);
             this.pageService.setIsLoading(false);
         });

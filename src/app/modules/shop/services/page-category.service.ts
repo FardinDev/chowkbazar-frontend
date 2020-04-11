@@ -7,7 +7,7 @@ import { filter } from 'rxjs/operators';
 import { ListOptions } from '../../../shared/api/shop.service';
 
 /**
- * This service serves as a mediator between the PageCategoryComponent, ProductsViewComponent and WidgetFiltersComponent components.
+ * This service serves as a mediator between the PageCategoryCom ponent, ProductsViewComponent and WidgetFiltersComponent components.
  */
 @Injectable()
 export class PageCategoryService {
@@ -51,6 +51,7 @@ export class PageCategoryService {
     }
 
     setList(list: ProductsList): void {
+       
         this.listState = list;
         this.listSource.next(this.listState);
     }

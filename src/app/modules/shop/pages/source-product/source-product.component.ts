@@ -75,7 +75,7 @@ onImageChange(event) {
         form.value['alibabaUrl'] ? form.value['alibabaUrl'] : form.value['alibabaUrl'] = '';
         form.value['images'] = this.previews ;
 
-        console.log(form.value);
+        // console.log(form.value);
 
         this.shop.storeSourceProduct(form.value).subscribe(res => {
             if (res.status == 'success') {
