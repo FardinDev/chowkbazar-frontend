@@ -114,29 +114,13 @@
                                 <div class="form-group row pl-3 pr-3" *ngIf="previews.length < 5">
                                     <div class="custom-file">
                                         <input type="file" name="images[]" class="custom-file-input" accept="image/x-png,image/gif,image/jpeg" multiple
-                                        (change)='onImageChange($event)' [(ngModel)]="model.images" #images="ngModel">
-                                        <label class="custom-file-label" for="validatedCustomFile">Choose Maximum 5 Images</label>
+                                        (change)='onImageChange($event)'>
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose Maximum {{maximumImages}} Images</label>
                                         <div class="invalid-feedback">Example invalid custom file feedback</div>
                                       </div>
                                 </div>
-                                <!-- File Button -->
-                                <!-- <div class="form-group row">
-                                    <label class="col-md-12 text-center" for="file" style="
-                                        /* margin: 27px; */
-                                        /* margin: 42px 0; */
-                                        padding: 42px 0;
-                                        border-top: 1px dotted;
-                                        border-bottom: 1px dotted;
-                                        cursor:pointer;
-                                    ">Click Here To Select image(s)</label>
-                                    <div class="col-md-4 col-lg-3 file-loading">
-                                        <input id="file" name="file[]" class="file" accept="image/x-png,image/gif,image/jpeg" type="file"
-                                            multiple>
-                                        <div class="help-block">
-                                            Maximum 5 Images
-                                        </div>
-                                    </div>
-                                </div> -->
+                    
+                        
                                 <div *ngIf="previews.length > 0" class="bd-example bd-example-images mb-4">
                                     <button type="button" class="close" aria-label="Close" tooltip="Clear Images" placement="bottom" (click)="clearImages()">
                                         <span aria-hidden="true">&times;</span>

@@ -38,6 +38,9 @@ export interface Description {
 export interface queryObj {
     status: string;
 }
+export interface SourceProductObj {
+    status: string;
+}
 @Injectable({
     providedIn: 'root'
 })
@@ -73,6 +76,11 @@ export class ShopService {
         return this.http.post<queryObj>(this.url+`/api/store-query`, {params});
     }
 
+    storeSourceProduct(formData: any[]): Observable<SourceProductObj>{
+   
+        return this.http.post<SourceProductObj>(this.url+`/api/store-source-product`, formData);
+
+    }
 
     getCategory(slug: string): Observable<Category> {
         /**

@@ -1,3 +1,5 @@
+import { ToastrService } from 'ngx-toastr';
+import { ShopService } from './../../../../shared/api/shop.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 
@@ -22,11 +24,13 @@ export class SourceProductComponent implements OnInit, OnDestroy {
 
 previews = [];
     submitted = false;
-    // updating = false;
+    maximumImages = 5;
+
     model = new SourceProduct();
 
     constructor(
-    
+    private shop: ShopService,
+    private toastr: ToastrService
     ) { }
 
     ngOnInit(): void {
@@ -41,16 +45,21 @@ onImageChange(event) {
     if (event.target.files && event.target.files[0]) {
         var filesAmount = event.target.files.length;
         for (let i = 0; i < filesAmount; i++) {
+  
+                
                 var reader = new FileReader();
    
                 reader.onload = (event:any) => {
-                //   console.log(event.target.result);
-                   this.previews.push(event.target.result); 
-   
-                   this.model.images = this.previews;
+
+                    if (this.previews.length < this.maximumImages) {
+
+                        this.previews.push(event.target.result); 
+
+                    }
                 }
   
                 reader.readAsDataURL(event.target.files[i]);
+    
         }
     }
   }
@@ -62,10 +71,28 @@ onImageChange(event) {
 
     onSubmit(form) {
         this.submitted = true;
-        
-         console.log('====================================');
-         console.log(form.value);
-         console.log('====================================');
+
+        form.value['alibabaUrl'] ? form.value['alibabaUrl'] : form.value['alibabaUrl'] = '';
+        form.value['images'] = this.previews ;
+
+        console.log(form.value);
+
+        this.shop.storeSourceProduct(form.value).subscribe(res => {
+            if (res.status == 'success') {
+                this.toastr.success(`Your request is submitted! We will contact you at the given contact info. Thanks`);
+                form.reset();
+                this.previews = [];
+                form.submitted = false;
+                this.submitted = false;
+             }else{
+                this.toastr.error(`Your request is not submitted! Try reloading and submit again. Thanks`);
+             }
+        });
+
+
+
+
+
 
       }
 
