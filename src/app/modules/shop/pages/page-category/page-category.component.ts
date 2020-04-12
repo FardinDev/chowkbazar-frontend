@@ -116,6 +116,9 @@ export class PageCategoryComponent implements OnDestroy {
         if ('sort' in options && options.sort !== 'default') {
             params.sort = options.sort;
         }
+        if ('tag' in options && options.tag !== 'all') {
+            params.tag = options.tag;
+        }
         if ('filterValues' in options) {
             this.pageService.filters.forEach(filter => {
                 if (!(filter.slug in filterValues)) {

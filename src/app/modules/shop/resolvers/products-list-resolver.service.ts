@@ -19,6 +19,9 @@ export function parseProductsListParams(params: Params): ListOptions {
     if (params.sort) {
         options.sort = params.sort;
     }
+    if (params.tag) {
+        options.tag = params.tag;
+    }
 
     for (const param of Object.keys(params)) {
         const mr = param.match(/^filter_([-_A-Za-z0-9]+)$/);

@@ -19,9 +19,16 @@
                         {{ item.label }}
                         <app-icon *ngIf="item.menu" class="departments__link-arrow" name="arrow-rounded-right-6x9" size="6x9"></app-icon>
                     </ng-template>
-
-                    <a *ngIf="!item.external" [routerLink]="item.url" [target]="item.target" (click)="onItemClick()"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
-                    <a *ngIf="item.external" [href]="item.url" [target]="item.target" (click)="onItemClick()"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
+                    
+                    <a *ngIf="!item.external" class="departments__item-link" [routerLink]="RootService.catalog(item.url)" [target]="item.target" (click)="onItemClick()" >
+                        <ng-container [ngTemplateOutlet]="link">
+                        
+                        </ng-container> 
+                    </a>
+                    <a *ngIf="item.external" class="departments__item-link" [href]="item.url" [target]="item.target" (click)="onItemClick()" >
+                        <ng-container [ngTemplateOutlet]="link"></ng-container>
+                    </a>
+                  
 
                     <div *ngIf="item.menu && item.menu.type == 'megamenu'" class="departments__megamenu departments__megamenu--{{ item.menu.size }}">
                         <app-header-megamenu [menu]="item.menu" [departments]="true" (itemClick)="onSubItemClick()"></app-header-megamenu>

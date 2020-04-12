@@ -16,6 +16,9 @@ export interface PaginatedList<T> extends List<T> {
     /** Sorting algorithm. */
     sort: string;
 
+    /** tag name. */
+    tag: string;
+
     /** Total items in list. Not a items.length. */
     total: number;
 

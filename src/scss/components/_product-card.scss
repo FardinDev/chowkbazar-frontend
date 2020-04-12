@@ -34,12 +34,12 @@
 
     &:hover::before {
         transition-duration: 0s;
-        box-shadow: $product-card-hover-shadow;
+        box-shadow: 0 0 0 2px #FE980F inset;;
     }
 
     &:hover .product-card__quickview {
         transition-duration: 0s, 0s;
-        background: $product-card-quickview-default-bg;
+        background: #FE980F;
 
         &:not(.product-card__quickview--preload) {
             color: $product-card-quickview-default-color;

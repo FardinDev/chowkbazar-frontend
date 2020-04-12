@@ -29,6 +29,7 @@ export interface ListOptions {
     page?: number;
     limit?: number;
     sort?: string;
+    tag?: string;
     filterValues?: SerializedFilterValues;
 }
 
@@ -198,11 +199,14 @@ export class ShopService {
         if ('sort' in options) {
             params.sort = options.sort;
         }
+        if ('tag' in options) {
+            params.tag = options.tag;
+        }
         if ('filterValues' in options) {
             Object.keys(options.filterValues).forEach(slug => params[`filter_${slug}`] = options.filterValues[slug]);
         }
         
-        // console.log(params);
+        console.log(options);
         console.log('====================================');
         this.http.post(this.url+`/api/get-product-list?page=`+this.defaultPage, {params}).subscribe(val => {
             console.log(val);

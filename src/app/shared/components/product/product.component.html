@@ -204,7 +204,7 @@
             <div *ngIf="product.tags" class="product__tags tags">
                 <label class="product__option-label">Tags</label>
                 <div class="tags__list">
-                    <a *ngFor="let tag of product.tags" href="" appClick> {{ tag }} </a>
+                    <a *ngFor="let tag of product.tags" [routerLink]="'/shop/catalog/?tag='+tag" router appClick> {{ tag }} </a>
                 </div>
             </div>
 

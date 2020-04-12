@@ -1,3 +1,4 @@
+import { RootService } from './../../../../shared/services/root.service';
 import { Component } from '@angular/core';
 import { navigation } from '../../../../../data/header-navigation';
 import { NavigationLink } from '../../../../shared/interfaces/navigation-link';
@@ -13,7 +14,8 @@ export class LinksComponent {
     hoveredItem: NavigationLink = null;
 
     constructor(
-        private direction: DirectionService
+        private direction: DirectionService,
+        private RootService: RootService
     ) {}
 
     onItemMouseEnter(item: NavigationLink, event: MouseEvent): void {

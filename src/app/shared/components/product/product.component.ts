@@ -1,3 +1,4 @@
+import { RootService } from './../../services/root.service';
 import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren, TemplateRef} from '@angular/core';
 import { Product, ProductAttribute } from '../../interfaces/product';
 import { CarouselComponent, SlidesOutputData } from 'ngx-owl-carousel-o';
@@ -121,6 +122,7 @@ export class ProductComponent implements OnInit {
         private direction: DirectionService,
         private modalService: BsModalService,
         public query: QueryService,
+        public RootService: RootService
     ) { }
 
     ngOnInit(): void {

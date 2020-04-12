@@ -719,7 +719,7 @@
    // -- .product-card
    // ----------------------------------------
       $product-card-bg:                      #fff                                     !default;
-      $product-card-border-radius:           2px                                      !default;
+      $product-card-border-radius:           2px                                      !default; 
       $product-card-divider-color:           #ebebeb                                  !default;
       $product-card-font-alt-color:          $light-opposite-alt-color                !default;
       $product-card-font-muted-color:        $light-opposite-muted-color              !default;
@@ -739,7 +739,7 @@
       $product-card-quickview-color:         #ccc                                     !default;
       $product-card-quickview-default-bg:    $accent-color                            !default;
       $product-card-quickview-default-color: $accent-opposite-color                   !default;
-      $product-card-quickview-hover-bg:      $dark-color                              !default;
+      $product-card-quickview-hover-bg:      $accent-color                              !default;
       $product-card-quickview-hover-color:   $dark-opposite-color                     !default;
 
    // ----------------------------------------

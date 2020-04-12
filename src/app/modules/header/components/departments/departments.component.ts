@@ -1,3 +1,4 @@
+import { RootService } from './../../../../shared/services/root.service';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -15,7 +16,7 @@ import { Observable } from 'rxjs';
 export class DepartmentsComponent implements OnInit, OnDestroy {
     private destroy$: Subject<any> = new Subject();
 
-    items = [];
+    items: NavigationLink[] = [];
     hoveredItem: NavigationLink = null;
 
     isOpen = false;
@@ -31,18 +32,23 @@ export class DepartmentsComponent implements OnInit, OnDestroy {
         private el: ElementRef,
         private service: DepartmentsService,
         private shop: ShopService,
+        public RootService: RootService,
     ) { }
 
     ngOnInit(): void {
        this.shop.getDepartments().subscribe(val => { 
-        //    console.log(val);
-        this.items = val});
-        // console.log('hi');
+          
+        this.items = val
+    
+        console.log(val);
+    
+    });
         // console.log(this.items);
         const root = this.element.querySelector('.departments') as HTMLElement;
         const content = this.element.querySelector('.departments__links-wrapper') as HTMLElement;
 
         this.service.areaElement$.pipe(takeUntil(this.destroy$)).subscribe(areaElement => {
+            
             if (areaElement) {
                 this.fixed = true;
                 this.isOpen = true;

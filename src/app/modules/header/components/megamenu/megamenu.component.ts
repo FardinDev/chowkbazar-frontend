@@ -1,3 +1,4 @@
+import { RootService } from './../../../../shared/services/root.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Megamenu } from '../../../../shared/interfaces/megamenu';
 import { NestedLink } from '../../../../shared/interfaces/nested-link';
@@ -13,5 +14,7 @@ export class MegamenuComponent {
 
     @Output() itemClick: EventEmitter<NestedLink> = new EventEmitter<NestedLink>();
 
-    constructor() { }
+    constructor(
+        public RootService: RootService,
+    ) { }
 }

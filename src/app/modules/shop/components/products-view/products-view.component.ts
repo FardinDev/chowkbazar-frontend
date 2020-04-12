@@ -33,6 +33,7 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
             page: this.fb.control(this.pageService.page),
             limit: this.fb.control(this.pageService.limit),
             sort: this.fb.control(this.pageService.sort),
+            tag: this.fb.control(this.pageService.tag),
         });
         this.listOptionsForm.valueChanges.subscribe(value => {
             value.limit = parseFloat(value.limit);
@@ -43,9 +44,9 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
         this.pageService.list$.pipe(
             takeUntil(this.destroy$)
         ).subscribe(
-            ({page, limit, sort, filterValues}) => {
+            ({page, limit, sort, tag, filterValues}) => {
                 this.filtersCount = Object.keys(filterValues).length;
-                this.listOptionsForm.setValue({page, limit, sort}, {emitEvent: false});
+                this.listOptionsForm.setValue({page, limit, sort, tag}, {emitEvent: false});
             }
         );
     }

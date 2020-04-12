@@ -1,3 +1,4 @@
+import { RootService } from './../../../../shared/services/root.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavigationLink } from '../../../../shared/interfaces/navigation-link';
 import { NestedLink } from '../../../../shared/interfaces/nested-link';
@@ -15,7 +16,9 @@ export class MenuComponent {
 
     hoveredItem: NavigationLink = null;
 
-    constructor() { }
+    constructor(
+        public RootService: RootService
+    ) { }
 
     onItemMouseEnter(item: NavigationLink): void {
         this.hoveredItem = item;

@@ -17,6 +17,16 @@ export class RootService {
         return `/shop/catalog`;
     }
 
+    catalog(slug: string): string {
+        const basePath = `/`;
+        return `${basePath}/${slug}`;
+    }
+    tagQuery(tag: string): string {
+        const basePath = this.shop();
+        return basePath+'/?tag='+tag;
+
+    }
+
     category(category: Partial<Category>): string {
         if (category.type === 'shop') {
             const basePath = this.shop();
