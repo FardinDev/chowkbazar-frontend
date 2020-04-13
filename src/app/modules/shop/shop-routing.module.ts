@@ -92,7 +92,7 @@ const routes: Routes = [
         data: {
             columns: 4,
             viewMode: 'grid',
-            categorySlug: 'power-tools',
+            categorySlug: 'smart-gadgets',
         },
         resolve: {
             category: CategoryResolverService,
@@ -119,7 +119,7 @@ const routes: Routes = [
             columns: 3,
             viewMode: 'list',
             sidebarPosition: 'start',
-            categorySlug: 'power-tools',
+            categorySlug: 'smart-gadgets',
         },
         resolve: {
             category: CategoryResolverService,

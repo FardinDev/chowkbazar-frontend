@@ -60,7 +60,7 @@ export class PageCategoryComponent implements OnDestroy {
 
             this.pageService.setList(data.products);
 
-            this.columns = 'columns' in data ? data.columns : this.columns;
+            this.columns = 4; //change the grid column numbers here
             this.viewMode = 'viewMode' in data ? data.viewMode : this.viewMode;
             this.sidebarPosition = 'sidebarPosition' in data ? data.sidebarPosition : this.sidebarPosition;
         });

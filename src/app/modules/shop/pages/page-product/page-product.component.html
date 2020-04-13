@@ -1,6 +1,7 @@
 <app-page-header [breadcrumbs]="[
     {label: 'Home',         url: '/'},
-    {label: 'Screwdrivers', url: '/catalog'},
+    {label: 'Shop', url: '/shop/catalog'},
+    {label: product.categories[0]?.name, url: '/shop/catalog/'+product.categories[0]?.slug},
     {label: product?.name,  url: ''}
 ]"></app-page-header>
 

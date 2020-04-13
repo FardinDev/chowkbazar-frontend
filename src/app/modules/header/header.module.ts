@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 // modules
 import { SharedModule } from '../../shared/shared.module';
-
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 // components
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { DropcartComponent } from './components/dropcart/dropcart.component';
@@ -40,7 +40,7 @@ import { AccountMenuComponent } from './components/account-menu/account-menu.com
         RouterModule,
         // modules
         SharedModule,
-
+        AutocompleteLibModule
         // components
 
     ],

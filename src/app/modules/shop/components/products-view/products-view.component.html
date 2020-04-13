@@ -1,5 +1,5 @@
 <div class="products-view" [ngClass]="{'products-view--loading': this.pageService.isLoading$|async}" [formGroup]="listOptionsForm">
-    <div class="products-view__loader"></div>
+    <div class="products-view__loader"></div> 
 
     <div *ngIf="pageService.items?.length" class="products-view__content">
         <div class="products-view__options">
@@ -14,6 +14,7 @@
                         <span class="filters-button__counter" *ngIf="filtersCount > 0">{{ filtersCount }}</span>
                     </button>
                 </div>
+                
                 <div class="view-options__layout">
                     <div class="layout-switcher">
                         <div class="layout-switcher__list">
@@ -57,6 +58,7 @@
                         <select class="form-control form-control-sm" id="view-options-limit" formControlName="limit">
                             <option value="12">12</option>
                             <option value="24">24</option>
+                            <option value="36">36</option>
                         </select>
                     </div>
                 </div>

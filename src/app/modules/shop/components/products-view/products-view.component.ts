@@ -4,6 +4,7 @@ import { PageCategoryService } from '../../services/page-category.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 export type Layout = 'grid'|'grid-with-features'|'list';
 
@@ -26,9 +27,16 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
         private fb: FormBuilder,
         public sidebar: ShopSidebarService,
         public pageService: PageCategoryService,
+        public activeRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
+
+        this.activeRoute.queryParams.subscribe(queryParams => {
+         if (queryParams.tag) {
+            this.pageService.updateOptions(queryParams);
+         }
+        });
         this.listOptionsForm = this.fb.group({
             page: this.fb.control(this.pageService.page),
             limit: this.fb.control(this.pageService.limit),
@@ -63,4 +71,6 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
     resetFilters(): void {
         this.pageService.updateOptions({filterValues: {}});
     }
+
+
 }

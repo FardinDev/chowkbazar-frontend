@@ -34,8 +34,9 @@ export class QueryComponent implements AfterViewInit, OnDestroy {
     product: Product;
     storingQuery = false;
     modalConfig = {
+        class: 'modal-dialog-centered second modal-lg',
         backdrop: true,
-        ignoreBackdropClick: true
+        ignoreBackdropClick: false
       };
 
     showingQuery = false;

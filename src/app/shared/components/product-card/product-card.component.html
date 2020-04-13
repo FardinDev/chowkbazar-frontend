@@ -44,10 +44,10 @@
                     <div class="tags__list">
                         <ng-container *ngFor="let tag of product.tags; let i=index">
 
-                        <a *ngIf="i<3 && !type" href="" >
+                        <a *ngIf="i<3 && !type" [routerLink]="root.shop()" [queryParams]="{tag: tag}">
                             {{ tag }} 
                         </a>
-                        <a *ngIf="type=='lg'" href="" >
+                        <a *ngIf="type=='lg'" [routerLink]="root.shop()" [queryParams]="{tag: tag}">
                             {{ tag }} 
                         </a>
                     </ng-container>
