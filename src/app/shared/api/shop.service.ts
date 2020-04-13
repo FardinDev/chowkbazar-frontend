@@ -6,7 +6,7 @@ import { NavigationLink } from '../interfaces/navigation-link';
 import { Slider } from '../interfaces/slider';
 import { HttpClient } from '@angular/common/http';
 import { Brand } from '../interfaces/brand';
-import { Product } from '../interfaces/product';
+import { Product, SearchProduct } from '../interfaces/product';
 import { ProductsList } from '../interfaces/list';
 import { SerializedFilterValues } from '../interfaces/filter';
 import {
@@ -206,12 +206,12 @@ export class ShopService {
             Object.keys(options.filterValues).forEach(slug => params[`filter_${slug}`] = options.filterValues[slug]);
         }
         
-        console.log(options);
-        console.log('====================================');
-        this.http.post(this.url+`/api/get-product-list?page=`+this.defaultPage, {params}).subscribe(val => {
-            console.log(val);
-        });
-        console.log('====================================');
+        // console.log(options);
+        // console.log('====================================');
+        // this.http.post(this.url+`/api/get-product-list?page=`+this.defaultPage, {params}).subscribe(val => {
+        //     console.log(val);
+        // });
+        // console.log('====================================');
         //
         // return this.http.get<ProductsList>('https://example.com/api/products.json', {params});
 
@@ -235,6 +235,14 @@ export class ShopService {
         // This is for demonstration purposes only. Remove it and use the code above.
         // return getProduct(productSlug);
         return this.http.get<Product>(this.url+`/api/get-product/${productSlug}`);
+
+    }
+
+    searchProducts(query: string): Observable<SearchProduct[]> {
+
+        const param = { 'search' : query };
+
+        return this.http.post<SearchProduct[]>(this.url+`/api/search-product`, param);
 
     }
 

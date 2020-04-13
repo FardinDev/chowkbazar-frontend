@@ -40,7 +40,7 @@ export class DepartmentsComponent implements OnInit, OnDestroy {
           
         this.items = val
     
-        console.log(val);
+        // console.log(val);
     
     });
         // console.log(this.items);

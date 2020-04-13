@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 // modules
 import { SharedModule } from '../../shared/shared.module';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { ClickOutsideModule } from 'ng-click-outside';
 // components
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { DropcartComponent } from './components/dropcart/dropcart.component';
@@ -18,6 +19,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { SearchComponent } from './components/search/search.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { AccountMenuComponent } from './components/account-menu/account-menu.component';
+import { SearchListComponent } from './components/search/search-list/search-list.component';
 
 @NgModule({
     declarations: [
@@ -32,6 +34,7 @@ import { AccountMenuComponent } from './components/account-menu/account-menu.com
         SearchComponent,
         TopbarComponent,
         AccountMenuComponent,
+        SearchListComponent
       
     ],
     imports: [
@@ -40,7 +43,8 @@ import { AccountMenuComponent } from './components/account-menu/account-menu.com
         RouterModule,
         // modules
         SharedModule,
-        AutocompleteLibModule
+        AutocompleteLibModule,
+        ClickOutsideModule
         // components
 
     ],

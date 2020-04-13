@@ -50,3 +50,14 @@ export interface Product {
     customFields: CustomFields;
     views?: number;
 }
+
+
+export interface SearchProduct{
+    name: string;
+    slug: string;
+    image: string;
+    minimum_orders: string;
+    start_price: string;
+    end_price: string;
+    views: number;
+}

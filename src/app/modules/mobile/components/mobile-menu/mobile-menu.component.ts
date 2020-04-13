@@ -19,7 +19,7 @@ export class MobileMenuComponent implements OnDestroy, OnInit {
     constructor(public mobilemenu: MobileMenuService) { }
 
     ngOnInit(): void {
-        console.log(this.links);
+        // console.log(this.links);
         this.mobilemenu.isOpen$.pipe(takeUntil(this.destroy$)).subscribe(isOpen => this.isOpen = isOpen);
     }
 

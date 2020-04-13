@@ -269,7 +269,7 @@
     }
     .mobile-header__search-button--close {
         @include direction {
-            #{$border-inline-start}: 1px solid $offcanvas-search-divider-color;
+            #{$border-inline-start}: 0px solid $offcanvas-search-divider-color;
         }
     }
 }
