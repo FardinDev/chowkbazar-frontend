@@ -37,6 +37,7 @@
 }
 .block-features__content {
     padding-top: 2px;
+    margin: auto;
 }
 .block-features__title {
     font-size: 17px;
@@ -171,4 +172,23 @@
             height: 2px;
         }
     }
+}
+
+@media (max-width: 479px){
+    .block-features__item{
+        padding: 8px;
+    }
+    .block-features__icon {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .block-features__title {
+        font-size: 12px;
+    }
+
+    .block-features__subtitle {
+        font-size: 12px;
+    }
+
 }

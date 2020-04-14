@@ -57,7 +57,7 @@ export class BlockProductsCarouselComponent implements OnChanges {
                 930:  {items: 4, margin: 10},
                 690:  {items: 3, margin: 10},
                 400:  {items: 2, margin: 10},
-                0:    {items: 1}
+                0:    {items: 2, margin: 5}
             }
         },
         horizontal: {

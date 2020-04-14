@@ -12,12 +12,16 @@
     }
     .products-list__item {
         @if ($columns == 1) {
-            width: 100%;
+            width: 48%;
         } @else {
             width: calc(#{100% / $columns} - #{$margin-horizontal*2});
         }
-        margin: $margin-vertical $margin-horizontal;
+        margin: 4px 3px;
     }
+
+    
+
+    
 }
 
 
@@ -86,7 +90,7 @@
         .product-card {
             @include product-card-grid-sm();
         }
-    }
+    } 
     @media (max-width: breakpoint(md-end)) and (min-width: breakpoint(md-start)) {
         @include local-layout(3, 8px, 6px);
     }
@@ -95,6 +99,7 @@
     }
     @media (max-width: 479px) {
         @include local-layout(1, 8px, 6px);
+
     }
 }
 .products-list[data-layout="grid-5-full"] {
@@ -117,6 +122,8 @@
     }
     @media (max-width: 479px) {
         @include local-layout(1, 8px, 6px);
+
+
     }
 }
 
@@ -128,7 +135,10 @@
 
     .products-list__item {
         display: block;
+        width: 100%;
+        margin: 4px 3px;
     }
+
 
     .product-card {
         @include product-card-list();

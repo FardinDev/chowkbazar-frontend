@@ -85,6 +85,7 @@
             <div class="product-card__minimum-orders">Minimum Orders: {{product.minimum_orders}}</div>
         </div>
         <div class="product-card__buttons">
+            <div class="product-card__views my-auto">Views: {{product.views}}</div>
             <!-- <button class="btn btn-primary product-card__addtocart" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">Add To Cart</button>
             <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">Add To Cart</button> -->
             <button type="button" class="btn btn-primary product-card__addtocart" [ngClass]="{'btn-loading': showingQuery}" appClick (click)="showQuery()">Send Query</button>
@@ -96,7 +97,6 @@
                 <app-icon name="compare-16" size="16"></app-icon>
                 <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
             </button> -->
-            <div class="product-card__minimum-orders my-auto">Views: {{product.views}}</div>
         </div>
     </div>
 </div>

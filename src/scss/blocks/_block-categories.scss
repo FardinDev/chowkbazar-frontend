@@ -5,14 +5,14 @@
 @import '../functions';
 
 
-$local-item-margin: 6px;
+$local-item-margin: 3px;
 
 
 .block-categories {}
 .block-categories__list {
     display: flex;
     flex-wrap: wrap;
-    margin: -$local-item-margin;
+    margin: -($local-item-margin * 2) - 2;
 }
 .block-categories__item {
     margin: $local-item-margin;
@@ -28,7 +28,7 @@ $local-item-margin: 6px;
     }
     @media (max-width: 479px) {
         .block-categories__item {
-            width: calc(100% - #{$local-item-margin * 2});
+            width: calc(50% - #{$local-item-margin * 2});
         }
     }
 }
