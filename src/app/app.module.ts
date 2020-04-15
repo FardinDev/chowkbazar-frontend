@@ -39,7 +39,6 @@ import { AnimatedDigitComponent } from './animated-digit/animated-digit.componen
 
 import * as firebase from 'firebase/app';
 import { environment } from '../environments/environment';
-
 firebase.initializeApp(environment.firebaseConfig);
 
 @NgModule({

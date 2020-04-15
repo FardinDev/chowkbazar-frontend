@@ -2,7 +2,7 @@
 // .loading-bar
 */
 @import '../variables';
-
+@import '../themes/theme-orange/theme-variables';
 
 $local-duration: .8s;
 $local-hide-duration: .2s;
@@ -11,7 +11,7 @@ $local-hide-duration: .2s;
 .loading-bar {
     position: fixed;
     z-index: 9999;
-    height: 2px;
+    height: 4px;
     width: 100%;
     top: 0;
     left: 0;
@@ -21,7 +21,7 @@ $local-hide-duration: .2s;
     height: inherit;
     width: 0;
     transition: width 0s 0s, opacity 0s 0s;
-    background-color: $link-color;
+    background-color: $theme-secondary-color;
 }
 .loading-bar--start {
     .loading-bar__inner {

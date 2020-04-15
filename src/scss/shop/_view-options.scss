@@ -12,8 +12,10 @@
     font-size: 15px;
 }
 .view-options__legend {
+    width: 50%;
+    margin-top: auto;
     @include direction {
-        #{$margin-inline-start}: 20px;
+        #{$margin-inline-start}: auto;
     }
 }
 .view-options__divider {
@@ -24,19 +26,31 @@
         #{$margin-inline-end}: 12px;
     }
 }
-.view-options__control {
+
+
+.option__controls {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+.view-options__layout{
+
+    margin-top: auto;
+}
+.view-options__divider {
+    height: 8px;
+}
+.view-options__control {
+    display: block;
 
     @include direction {
+        #{$margin-inline-end}: 0;
         #{$margin-inline-start}: 24px;
     }
 
-    label {
-        margin-bottom: 0;
-
+    & + & {
         @include direction {
-            #{$margin-inline-end}: 8px;
+            #{$margin-inline-end}: 0;
         }
     }
 }
@@ -69,10 +83,20 @@
 }
 
 
-@media (max-width: 474px) {
-    .view-options__legend {
+
+
+
+
+
+@media (max-width: breakpoint(lg-end)) {
+    .option__controls {
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+    }
+    .view-options__layout{
         width: 100%;
-        padding-top: 12px;
+        margin-top: 12px;
     }
     .view-options__divider {
         height: 8px;
@@ -81,18 +105,53 @@
         display: block;
 
         @include direction {
-            #{$margin-inline-start}: 0;
-            #{$margin-inline-end}: 24px;
+            #{$margin-inline-end}: 0;
+            #{$margin-inline-start}: 24px;
         }
 
         & + & {
             @include direction {
-                #{$margin-inline-start}: 0;
+                #{$margin-inline-end}: 0;
             }
         }
     }
 }
 
+
+@media (max-width: 474px) {
+    .option__controls {
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+    }
+    .view-options__layout{
+        margin-top: auto;
+        width: auto;
+    }
+    .view-options__divider {
+        height: 8px;
+    }
+
+    .view-options__legend {
+        width: auto;
+        margin-top: 0;
+       
+    }
+    .view-options__control {
+        display: block;
+
+        @include direction {
+            #{$margin-inline-end}: 0;
+            #{$margin-inline-start}: 24px;
+        }
+
+        & + & {
+            @include direction {
+                #{$margin-inline-end}: 0;
+            }
+        }
+    }
+}
 
 .view-options--offcanvas--mobile {
     @media (min-width: breakpoint(lg-start)) {

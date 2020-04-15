@@ -1,3 +1,4 @@
+import { MobileMenuItem } from './../interfaces/mobile-menu-item';
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -9,6 +10,7 @@ import { Brand } from '../interfaces/brand';
 import { Product, SearchProduct } from '../interfaces/product';
 import { ProductsList } from '../interfaces/list';
 import { SerializedFilterValues } from '../interfaces/filter';
+
 import {
     getBestsellers,
     getFeatured,
@@ -61,6 +63,10 @@ export class ShopService {
 
     getDepartments(): Observable<NavigationLink[]> {
         return this.http.get<NavigationLink[]>(this.url+`/api/categories`);
+    }
+
+    getMobileMenu(): Observable<MobileMenuItem[]> {
+        return this.http.get<MobileMenuItem[]>(this.url+`/api/get-mobile-menu`);
     }
 
     getSliders(): Observable<Slider[]>{
