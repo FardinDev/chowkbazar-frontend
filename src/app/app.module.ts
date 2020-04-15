@@ -23,8 +23,6 @@ import { MobileModule } from './modules/mobile/mobile.module';
 import { SharedModule } from './shared/shared.module';
 import { WidgetsModule } from './modules/widgets/widgets.module';
 
-
-
 // components
 import { AppComponent } from './app.component';
 import { RootComponent } from './components/root/root.component';
@@ -35,6 +33,14 @@ import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.compon
 
 import { AnimatedDigitComponent } from './animated-digit/animated-digit.component';
 // import { Location, LocationStrategy, HashLocationStrategy  } from '@angular/common';
+
+
+//firebase
+
+import * as firebase from 'firebase/app';
+import { environment } from '../environments/environment';
+
+firebase.initializeApp(environment.firebaseConfig);
 
 @NgModule({
     declarations: [

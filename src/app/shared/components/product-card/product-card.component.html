@@ -19,7 +19,12 @@
     </div>
 
     <div class="product-card__image">
-        <a appClick [routerLink]="root.product(product)" *ngIf="product.images?.length"><img [src]="product.images[0]" alt=""></a>
+        <a appClick [routerLink]="root.product(product)" *ngIf="product.images?.length">
+
+            <img *ngIf="!isImgLoaded" src="assets/images/products/default-image.gif" >
+            <img [hidden]="!isImgLoaded" [src]="product.images[0]" (load)="isImgLoaded = true">
+        
+        </a>
     </div>
     <div class="product-card__info">
         <div class="product-card__name">
@@ -85,10 +90,16 @@
             <div class="product-card__minimum-orders">Minimum Orders: {{product.minimum_orders}}</div>
         </div>
         <div class="product-card__buttons">
-            <div class="product-card__views my-auto">Views: {{product.views}}</div>
+
+            
+            
+            <button type="button" class="btn btn-primary product-card__addtocart" [ngClass]="{'btn-loading': showingQuery}" appClick (click)="showQuery()">Send Query</button>
+            <div class="product-card__views product-card__compare my-auto">Views: {{product.views}}</div>
+   
+            
             <!-- <button class="btn btn-primary product-card__addtocart" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">Add To Cart</button>
             <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">Add To Cart</button> -->
-            <button type="button" class="btn btn-primary product-card__addtocart" [ngClass]="{'btn-loading': showingQuery}" appClick (click)="showQuery()">Send Query</button>
+           
             <!-- <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button" appClick (click)="addToWishlist()" [ngClass]="{'btn-loading': addingToWishlist}">
                 <app-icon name="wishlist-16" size="16"></app-icon>
                 <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>

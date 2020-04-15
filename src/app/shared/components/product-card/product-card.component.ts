@@ -29,7 +29,7 @@ export class ProductCardComponent implements OnInit, OnDestroy, OnChanges {
     showingQuickview = false;
     showingQuery = false;
     featuredAttributes: ProductAttribute[] = []; 
- 
+    isImgLoaded = false;
     constructor(
         private cd: ChangeDetectorRef,
         public root: RootService,

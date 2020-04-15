@@ -50,7 +50,8 @@ export class ShopService {
         private http: HttpClient,
     ) { }
 
-    url = 'http://localhost:8000';
+    // url = 'http://localhost:8000';
+    url = 'https://www.chowkbazarbd.com/v2';
     defaultPage = 1;
     /**
      * Returns category object by slug.

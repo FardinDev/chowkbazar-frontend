@@ -1,4 +1,4 @@
-import { Component, Inject, NgZone, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, NgZone, OnInit, AfterViewInit, PLATFORM_ID } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from './shared/services/cart.service';
 import { CompareService } from './shared/services/compare.service';
@@ -7,13 +7,13 @@ import { NavigationEnd, Router } from '@angular/router';
 import { isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { CurrencyService } from './shared/services/currency.service';
 import { filter, first } from 'rxjs/operators';
-
+import * as firebase from 'firebase/app';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
     constructor(
         @Inject(PLATFORM_ID) private platformId: any,
         private router: Router,
@@ -65,6 +65,13 @@ export class AppComponent implements OnInit {
         });
         this.wishlist.onAdding$.subscribe(product => {
             this.toastr.success(`Product "${product.name}" added to wish list!`);
+        });
+    }
+
+    ngAfterViewInit(){
+        firebase.analytics().logEvent('visit', {
+            'firsttimeuser': true,
+            'username': 'first user'
         });
     }
 }

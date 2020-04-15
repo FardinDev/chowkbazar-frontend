@@ -7,8 +7,9 @@
                     <owl-carousel-o [options]="carouselOptions" (changed)="featuredCarouselTranslated($event)"
                         appOwlPreventClick #featuredCarousel>
                         <ng-template *ngFor="let image of images" carouselSlide [id]="image.id">
-                            <a appClick (click)="openPhotoSwipe($event, image);" [href]="image.url" target="_blank">
-                                <img [src]="image.url" alt="" #imageElement>
+                            <a appClick (click)="openPhotoSwipe($event, image);" >
+                                <img [src]="image.url" alt="" #imageElement [hidden]="!mainImgLoaded" (load)="mainImgLoaded = true">
+                                <img *ngIf="!mainImgLoaded" src="assets/images/products/default-image.gif">
                             </a>
                         </ng-template>
                     </owl-carousel-o>
@@ -20,7 +21,8 @@
                             <span class="product-gallery__carousel-item"
                                 [ngClass]="{'product-gallery__carousel-item--active': image.active}" appClick
                                 (click)="featuredCarousel.to(image.id); setActiveImage(image)">
-                                <img class="product-gallery__carousel-image" [src]="image.url" alt="">
+                                <img class="product-gallery__carousel-image" [src]="image.url" [hidden]="!isImgLoaded" (load)="isImgLoaded = true">
+                                <img *ngIf="!isImgLoaded" class="product-gallery__carousel-image" src="assets/images/products/default-image.gif" >
                             </span>
                         </ng-template>
                         <ng-template *ngFor="let i of fakeSlides.slides" carouselSlide [id]="'fake-slide-'+i">

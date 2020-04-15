@@ -219,6 +219,15 @@ $local-dot-size: $local-dots-height - $local-dots-padding * 2;
         .block-slideshow__slide-button .btn {
             @include btn-sm();
         }
+
+        
+    }
+
+    @media (max-width: breakpoint(sm-end)) {
+        .block-slideshow__body,
+        .block-slideshow__slide {
+            height: 155px;
+        }
     }
 }
 
@@ -231,6 +240,8 @@ $local-dot-size: $local-dots-height - $local-dots-padding * 2;
     .block-slideshow__slide-image--mobile {
         background-position: top center;
         display: block;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
     .block-slideshow__slide-content {
         left: 5%;
@@ -250,5 +261,14 @@ $local-dot-size: $local-dots-height - $local-dots-padding * 2;
     }
     .block-slideshow__slide-button .btn {
         @include btn-sm();
+    }
+}
+
+
+@media (max-width: breakpoint(sm-end)) {
+  
+    .block-slideshow .owl-carousel .owl-dots {
+        bottom: 0;
+        background: transparent;
     }
 }

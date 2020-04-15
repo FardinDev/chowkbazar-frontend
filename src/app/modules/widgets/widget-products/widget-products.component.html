@@ -10,13 +10,9 @@
                     <a [routerLink]="root.product(product)">{{ product.name }}</a>
                 </div>
                 <div class="widget-products__prices">
-                    <ng-container *ngIf="product.compareAtPrice">
-                        <span class="widget-products__new-price">{{ product.price|currencyFormat }}</span>{{ ' ' }}
-                        <span class="widget-products__old-price">{{ product.compareAtPrice|currencyFormat }}</span>
-                    </ng-container>
-                    <ng-container *ngIf="!product.compareAtPrice">
-                        {{ product.price|currencyFormat }}
-                    </ng-container>
+                    <ng-container *ngIf="product.start_price">
+                        BDT {{ product.start_price }} - {{ product.end_price }}
+                     </ng-container>
                 </div>
             </div>
         </div>

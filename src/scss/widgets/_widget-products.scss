@@ -36,6 +36,11 @@
     margin-top: -2px;
     font-size: 14px;
     line-height: 17px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    position: relative;
 
     a {
         color: inherit;
@@ -60,3 +65,4 @@
     font-size: 12px;
     text-decoration: line-through;
 }
+

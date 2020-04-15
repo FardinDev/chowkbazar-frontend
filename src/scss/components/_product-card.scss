@@ -306,3 +306,10 @@
 .product-card--layout--list {
     @include product-card-list();
 }
+
+
+@media(max-width: 479px){
+    .product-card__views{
+        display: none;
+    }
+}
