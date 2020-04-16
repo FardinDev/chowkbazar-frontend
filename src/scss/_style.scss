@@ -200,9 +200,9 @@ Table of Contents:
 /* ----------------------------------------
 // Header
 // ---------------------------------------- */
-@import 'header/account-menu';
+// @import 'header/account-menu';
 @import 'header/departments';
-@import 'header/drop-search';
+// @import 'header/drop-search';
 @import 'header/dropcart';
 @import 'header/indicator';
 @import 'header/megamenu';
@@ -246,14 +246,14 @@ Table of Contents:
 // ---------------------------------------- */
 @import 'shop/address-card';
 @import 'shop/addresses-list';
-@import 'shop/cart';
-@import 'shop/cart-table';
+// @import 'shop/cart';
+// @import 'shop/cart-table';
 @import 'shop/category-card';
-@import 'shop/compare-table';
+// @import 'shop/compare-table';
 @import 'shop/dashboard';
-@import 'shop/order-header';
-@import 'shop/order-list';
-@import 'shop/order-success';
+// @import 'shop/order-header';
+// @import 'shop/order-list';
+// @import 'shop/order-success';
 @import 'shop/product';
 @import 'shop/product-gallery';
 @import 'shop/product-tabs';
@@ -262,26 +262,26 @@ Table of Contents:
 @import 'shop/profile-card';
 @import 'shop/quickview';
 @import 'shop/review';
-@import 'shop/reviews-list';
-@import 'shop/reviews-view';
+// @import 'shop/reviews-list';
+// @import 'shop/reviews-view';
 @import 'shop/shop-layout';
 @import 'shop/spec';
 @import 'shop/view-options';
-@import 'shop/wishlist';
+// @import 'shop/wishlist';
 
 
 
 /* ----------------------------------------
 // Blog
 // ---------------------------------------- */
-@import 'blog/comment';
-@import 'blog/comments-list';
-@import 'blog/post';
-@import 'blog/post-author';
-@import 'blog/post-header';
-@import 'blog/posts-list';
-@import 'blog/posts-view';
-@import 'blog/related-posts';
+// @import 'blog/comment';
+// @import 'blog/comments-list';
+// @import 'blog/post';
+// @import 'blog/post-author';
+// @import 'blog/post-header';
+// @import 'blog/posts-list';
+// @import 'blog/posts-view';
+// @import 'blog/related-posts';
 
 
 
@@ -319,6 +319,7 @@ Table of Contents:
 @import 'widgets/widget-tags';
 
 @import 'search/search';
+
 
 
 

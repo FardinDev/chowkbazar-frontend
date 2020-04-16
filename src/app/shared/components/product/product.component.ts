@@ -39,7 +39,7 @@ export class ProductComponent implements OnInit {
 
     showGallery = true;
     showingQuery = false;
-    isImgLoaded = false;
+    isImgLoaded = false; 
     mainImgLoaded = false;
     showGalleryTimeout: number;
     featuredAttributes: ProductAttribute[] = [];

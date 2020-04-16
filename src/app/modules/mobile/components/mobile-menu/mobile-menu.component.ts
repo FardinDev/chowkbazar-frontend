@@ -1,7 +1,7 @@
 import { ShopService } from './../../../../shared/api/shop.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { MobileMenuService } from '../../../../shared/services/mobile-menu.service';
 import { mobileMenu } from '../../../../../data/mobile-menu';
 import { MobileMenuItem } from '../../../../shared/interfaces/mobile-menu-item';
@@ -15,7 +15,7 @@ export class MobileMenuComponent implements OnDestroy, OnInit {
     private destroy$: Subject<any> = new Subject();
 
     isOpen = false;
-    links: MobileMenuItem[] = []; 
+    links$: Observable<MobileMenuItem[]>; 
 
     constructor(
         public mobilemenu: MobileMenuService,
@@ -25,9 +25,7 @@ export class MobileMenuComponent implements OnDestroy, OnInit {
     ngOnInit(): void {
         // console.log(this.links);
 
-        this.shop.getMobileMenu().subscribe(mobileMenu => {
-            this.links = mobileMenu;
-        });
+        this.links$ = this.shop.getMobileMenu();
         this.mobilemenu.isOpen$.pipe(takeUntil(this.destroy$)).subscribe(isOpen => this.isOpen = isOpen);
     }
 

@@ -10,14 +10,13 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { ClickOutsideModule } from 'ng-click-outside';
 // components
 import { DepartmentsComponent } from './components/departments/departments.component';
-import { DropcartComponent } from './components/dropcart/dropcart.component';
 import { HeaderComponent } from './header.component';
 import { LinksComponent } from './components/links/links.component';
 import { MegamenuComponent } from './components/megamenu/megamenu.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SearchComponent } from './components/search/search.component';
-import { TopbarComponent } from './components/topbar/topbar.component';
+
 import { AccountMenuComponent } from './components/account-menu/account-menu.component';
 import { SearchListComponent } from './components/search/search-list/search-list.component';
 
@@ -25,14 +24,13 @@ import { SearchListComponent } from './components/search/search-list/search-list
     declarations: [
         // components
         DepartmentsComponent,
-        DropcartComponent,
         HeaderComponent,
         LinksComponent,
         MegamenuComponent,
         MenuComponent,
         NavComponent,
         SearchComponent,
-        TopbarComponent,
+
         AccountMenuComponent,
         SearchListComponent
       

@@ -29,9 +29,7 @@ import { RootComponent } from './components/root/root.component';
 // pages
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 
-import { AnimatedDigitComponent } from './animated-digit/animated-digit.component';
 // import { Location, LocationStrategy, HashLocationStrategy  } from '@angular/common';
 
 
@@ -39,6 +37,7 @@ import { AnimatedDigitComponent } from './animated-digit/animated-digit.componen
 
 import * as firebase from 'firebase/app';
 import { environment } from '../environments/environment';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 firebase.initializeApp(environment.firebaseConfig);
 
 @NgModule({
@@ -49,8 +48,7 @@ firebase.initializeApp(environment.firebaseConfig);
         // pages
         PageHomeOneComponent,
         PageNotFoundComponent,
-        PageHomeTwoComponent,
-        AnimatedDigitComponent
+        ScrollTopComponent
   
     ],
     imports: [

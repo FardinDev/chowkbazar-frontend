@@ -13,6 +13,7 @@ import { Component, Input } from '@angular/core';
 export class SearchListComponent {
     @Input() product : SearchProduct;
     showingQuickview = false;
+    isImgLoaded = false;
 
     constructor(
         public root: RootService,
@@ -32,7 +33,7 @@ export class SearchListComponent {
 
           this.quickview.show(val).subscribe({
             complete: () => {
-                this.showingQuickview = false;
+                this.showingQuickview  = false;
             }
         });
 

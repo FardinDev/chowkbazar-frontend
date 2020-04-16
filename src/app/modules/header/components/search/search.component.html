@@ -7,7 +7,7 @@
                 aria-label="Site search" type="text" autocomplete="off" (click)="search.open(); "
                 (input)="searchQuery($event.target.value)"
                 #searchBox
-                >
+                > 
             <button *ngIf="products.length > 0" class="search__button" type="button" (click)="search.close(); clear(); searchBox.value = ''" >
                 <app-icon name="cross-20" size="20"></app-icon>
                 <span class="fake-svg-icon"></span>

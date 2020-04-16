@@ -1,3 +1,4 @@
+
 <li class="suggestions__item">
     <div class="suggestions__item-image">
         <img [src]="product.image" alt="" #imageElement [hidden]="!isImgLoaded" (load)="isImgLoaded = true">
@@ -8,13 +9,13 @@
         <div class="suggestions__item-meta">Minimum Orders: {{product.minimum_orders}}</div>
     </div>
     <div class="suggestions__item-price">BDT: {{product.start_price}} - {{product.end_price}}</div>
-    <div class="suggestions__item-actions">
+    <!-- <div class="suggestions__item-actions">
         <button type="button" appClick (click)="showQuickview(product.slug)"
             class="btn btn-primary btn-sm btn-svg-icon "
             [ngClass]="{'product-card__quickview--preload': showingQuickview}">
             <app-icon *ngIf="!showingQuickview" name="quickview-16" size="16"></app-icon>
             <span class="fake-svg-icon"></span>
         </button>
-    </div>
+    </div> -->
 </li>
  

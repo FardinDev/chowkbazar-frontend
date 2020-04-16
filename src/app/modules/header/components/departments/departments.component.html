@@ -5,7 +5,7 @@
             <div class="departments__padding"></div>
             <ul class="departments__links">
                 <li
-                    *ngFor="let item of items"
+                    *ngFor="let item of (items$|async)"
                     class="departments__item"
                     [ngClass]="{
                         'departments__item--menu': item.menu && item.menu.type == 'menu',

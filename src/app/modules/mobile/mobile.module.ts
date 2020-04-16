@@ -11,13 +11,15 @@ import { SharedModule } from '../../shared/shared.module';
 import { MobileHeaderComponent } from './components/mobile-header/mobile-header.component';
 import { MobileLinksComponent } from './components/mobile-links/mobile-links.component';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
+import { MobileSearchListComponent } from './components/mobile-header/mobile-search-list/mobile-search-list.component';
 
 @NgModule({
     declarations: [
         // components
         MobileHeaderComponent,
         MobileLinksComponent,
-        MobileMenuComponent
+        MobileMenuComponent,
+        MobileSearchListComponent
     ],
     imports: [
         // modules (angular)

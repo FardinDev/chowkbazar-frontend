@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
 export class DepartmentsComponent implements OnInit, OnDestroy {
     private destroy$: Subject<any> = new Subject();
 
-    items: NavigationLink[] = [];
+    items$: Observable<NavigationLink[]>;
     hoveredItem: NavigationLink = null;
 
     isOpen = false;
@@ -36,13 +36,8 @@ export class DepartmentsComponent implements OnInit, OnDestroy {
     ) { }
 
     ngOnInit(): void {
-       this.shop.getDepartments().subscribe(val => { 
-          
-        this.items = val
-    
-        // console.log(val);
-    
-    });
+
+       this.items$ = this.shop.getDepartments();
         // console.log(this.items);
         const root = this.element.querySelector('.departments') as HTMLElement;
         const content = this.element.querySelector('.departments__links-wrapper') as HTMLElement;
