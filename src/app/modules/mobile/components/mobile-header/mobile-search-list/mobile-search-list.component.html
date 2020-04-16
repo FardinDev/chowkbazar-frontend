@@ -1,14 +1,14 @@
 
-<li class="suggestions__item">
-    <div class="suggestions__item-image">
+<li class="suggestions__item pr-1">
+    <div class="suggestions__item-image m-auto">
         <img [src]="product.image" alt="" #imageElement [hidden]="!isImgLoaded" (load)="isImgLoaded = true">
         <img *ngIf="!isImgLoaded" src="assets/images/products/default-image.gif">
     </div>
     <div class="suggestions__item-info">
         <a class="suggestions__item-name" [href]="root.product(product)" appClick>{{product.name}}</a>
         <div class="suggestions__item-meta">Minimum Orders: {{product.minimum_orders}}</div>
+        <div class="suggestions__item-price m-0 pl-0">BDT: {{product.start_price}} - {{product.end_price}}</div>
     </div>
-    <div class="suggestions__item-price">BDT: {{product.start_price}} - {{product.end_price}}</div>
     <!-- <div class="suggestions__item-actions">
         <button type="button" appClick (click)="showQuickview(product.slug)"
             class="btn btn-primary btn-sm btn-svg-icon "

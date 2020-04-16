@@ -37,6 +37,12 @@ export class PageCategoryComponent implements OnDestroy {
         private shop: ShopService,
         private location: Location,
     ) {
+        
+    }
+
+    ngOnInit(): void {
+        //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+        //Add 'implements AfterViewInit' to the class.
         this.route.data.subscribe(data => {
             this.breadcrumbs = [
                 {label: 'Home', url: this.root.home()},
@@ -86,6 +92,11 @@ export class PageCategoryComponent implements OnDestroy {
             }),
             takeUntil(this.destroy$),
         ).subscribe(list => {
+            window.scroll({ 
+                top: 0, 
+                left: 0, 
+                behavior: 'smooth' 
+              });
             this.pageService.setList(list);
             this.pageService.setIsLoading(false);
         });
