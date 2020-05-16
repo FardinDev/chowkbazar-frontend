@@ -1,19 +1,22 @@
 // colors
 $light-opposite-color:  #3d464d       !default;
 $accent-color:          #FE980F       !default;
-$accent-opposite-color: #fff          !default;
+// $accent-opposite-color: #fff          !default;
+$accent-opposite-color: #3d464d          !default;
 $link-color:            $accent-color !default;
 $link-hover-color:      $accent-color !default;
-$theme-secondary-color:            #509538         !default;
+// $theme-secondary-color:            #509538         !default;
+$theme-secondary-color:            #3d464d         !default;
 
 // .nav-links
-$nav-links-item-font-weight:         400             !default;
+$nav-links-item-font-weight:         700             !default;
 $nav-links-item-default-arrow-color: rgba(#000, .25) !default;
 $nav-links-item-hover-bg:            rgba(#fff, .15) !default;
 
 
 // .departments
-$departments-bg:            #509538         !default;
+// $departments-bg:            #509538         !default;
+$departments-bg:            #3d464d         !default;
 $departments-icon-color:    rgba(#fff, .4)  !default;
 $departments-arrow-color:   rgba(#fff, .4)  !default;
 $departments-item-hover-bg: rgba(#fff, .08) !default;
@@ -49,3 +52,7 @@ $product-card-quickview-default-color: $light-opposite-color   !default;
 // .nouislider
 $nouislider-border-color: $accent-color          !default;
 $nouislider-handle-color: $accent-opposite-color !default;
+
+
+//nav
+$nav-links-item-default-font-color:  #3d464d                                   !default;

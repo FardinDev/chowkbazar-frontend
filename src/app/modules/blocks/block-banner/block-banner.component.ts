@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RootService } from 'src/app/shared/services/root.service';
 
 @Component({
     selector: 'app-block-banner',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./block-banner.component.scss']
 })
 export class BlockBannerComponent {
-    constructor() { }
+    constructor(public root: RootService) {
+     
+     }
 }

@@ -17,6 +17,10 @@ export class RootService {
         return `/shop/catalog`;
     }
 
+    sourceProduct(): string {
+        return `/source-products`;
+    }
+
     catalog(slug: string): string {
         const basePath = `/`;
         return `${basePath}/${slug}`;

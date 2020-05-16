@@ -11,6 +11,7 @@ export const navigation: NavigationLink[] = [
     {label: 'Home', url: '/'},
     {label: 'Products', url: '/shop/catalog'},
     {label: 'Source Products', url: '/source-products'},
+    {label: 'Become a Seller', url: '/source-products'},
     // {label: 'Megamenu', url: '/shop/catalog', menu: {
     //     type: 'megamenu',
     //     size: 'nl',
@@ -96,18 +97,18 @@ export const navigation: NavigationLink[] = [
     //         {label: 'Post Without Sidebar', url: '/blog/post-full'}
     //     ]
     // }},
-    {label: 'Pages', url: '/site', menu: {
-        type: 'menu',
-        items: [
-            {label: 'About Us',             url: '/site/about-us'},
-            {label: 'Contact Us',           url: '/site/contact-us'},
-            // {label: 'Contact Us Alt',       url: '/site/contact-us-alt'},
-            // {label: '404',                  url: '/site/not-found'},
-            {label: 'Terms And Conditions', url: '/site/terms'},
-            {label: 'FAQ',                  url: '/site/faq'},
-            // {label: 'Components',           url: '/site/components'},
-            // {label: 'Typography',           url: '/site/typography'}
-        ]
-    }},
+    // {label: 'Pages', url: '/site', menu: {
+    //     type: 'menu',
+    //     items: [
+    //         {label: 'About Us',             url: '/site/about-us'},
+    //         {label: 'Contact Us',           url: '/site/contact-us'},
+    //         // {label: 'Contact Us Alt',       url: '/site/contact-us-alt'},
+    //         // {label: '404',                  url: '/site/not-found'},
+    //         {label: 'Terms And Conditions', url: '/site/terms'},
+    //         {label: 'FAQ',                  url: '/site/faq'},
+    //         // {label: 'Components',           url: '/site/components'},
+    //         // {label: 'Typography',           url: '/site/typography'}
+    //     ]
+    // }},
     // {label: 'Buy Theme', url: 'https://themeforest.net/item/stroyka-tools-store-angular-7-template/23523630', external: true}
 ];

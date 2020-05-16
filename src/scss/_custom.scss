@@ -93,3 +93,26 @@
     
 
 }
+
+
+.hover-blue {
+    transition: color .3s;
+
+    &:hover {
+        color: $blue;
+    }
+}
+.hover-purple {
+    transition: color .3s;
+
+    &:hover {
+        color: $purple;
+    }
+}
+.hover-red {
+    transition: color .3s;
+
+    &:hover {
+        color: $red;
+    }
+}

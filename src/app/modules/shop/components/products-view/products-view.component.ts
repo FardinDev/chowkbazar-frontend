@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { RootService } from 'src/app/shared/services/root.service';
 
 export type Layout = 'grid'|'grid-with-features'|'list';
 
@@ -27,7 +28,8 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
         private fb: FormBuilder,
         public sidebar: ShopSidebarService,
         public pageService: PageCategoryService,
-        public activeRoute: ActivatedRoute
+        public activeRoute: ActivatedRoute,
+        public root: RootService
     ) { }
 
     ngOnInit(): void {

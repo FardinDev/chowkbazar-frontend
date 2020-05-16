@@ -7,7 +7,8 @@
                         {label: 'About Us',             url: '/site/about-us'},
                         {label: 'Terms And Conditions', url: '/site/terms'},
                         {label: 'Privacy Policy',       url: '/site/terms'},
-                        {label: 'Contact Us',           url: '/site/contact-us'}
+                        {label: 'Contact Us',           url: '/site/contact-us'},
+                        {label: 'Become a Seller',           url: '/site/contact-us'}
                     ]"></app-footer-links>
                 </div>
                 <div class="col-12 col-md-3 col-lg-6">
@@ -36,13 +37,17 @@
 
         <div class="site-footer__bottom">
             <div class="site-footer__copyright">
-                Powered by <a href="https://angular.io/" target="_blank">Angular</a> — Design And Developed by <a [href]="theme.author.profile_url" target="_blank">{{ theme.author.name }}</a>
+               
+                Copyright © {{theme.site.year}} <a [href]="theme.site.url" target="_blank">{{theme.site.name}}</a>  is owned by Chowkbazar Digital Enterprise. All rights reserved.
             </div>
             <div class="site-footer__payments">
                 <!-- <img src="assets/images/payments.png" alt=""> -->
                 <div class="block-features__content">
                     
                     <div class="block-features__subtitle"> <span class="accent">Total Visits:</span> 15472 </div>
+                    <div class="block-features__subtitle">  Powered by <a href="https://angular.io/" target="_blank">Angular</a> — Design And Developed by <a [href]="theme.author.profile_url" target="_blank">{{ theme.author.name }}</a> </div>
+                   
+                   
                 </div>
             </div>
         </div>
