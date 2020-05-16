@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BlockHeaderGroup } from '../../../../shared/interfaces/block-header-group';
+import { RootService } from 'src/app/shared/services/root.service';
 
 @Component({
     selector: 'app-block-header',
@@ -16,7 +17,9 @@ export class BlockHeaderComponent {
 
     @Output() groupChange: EventEmitter<BlockHeaderGroup> = new EventEmitter();
 
-    constructor() { }
+    constructor(
+        public root : RootService
+    ) { }
 
     setGroup(group: BlockHeaderGroup): void {
         this.groups.forEach(g => g.current = g === group);

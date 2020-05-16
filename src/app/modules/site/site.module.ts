@@ -16,6 +16,7 @@ import { PageAboutUsComponent } from './pages/page-about-us/page-about-us.compon
 import { PageContactUsComponent } from './pages/page-contact-us/page-contact-us.component';
 import { PageFaqComponent } from './pages/page-faq/page-faq.component';
 import { PageTermsComponent } from './pages/page-terms/page-terms.component';
+import { PageBecomeSellerComponent } from './pages/page-become-seller/page-become-seller.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PageTermsComponent } from './pages/page-terms/page-terms.component';
         PageAboutUsComponent,
         PageContactUsComponent,
         PageFaqComponent,
-        PageTermsComponent
+        PageTermsComponent,
+        PageBecomeSellerComponent,
     ],
     imports: [
         // modules (angular)

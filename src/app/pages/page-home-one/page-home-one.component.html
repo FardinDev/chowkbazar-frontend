@@ -11,7 +11,7 @@
     (groupChange)="groupChange(featuredProducts, $event)"
 ></app-block-products-carousel>
 
-<app-block-banner></app-block-banner>
+<app-block-banner [img]='middleBanner'></app-block-banner>
 
 <app-block-products header="Most Viewed" layout="large-first" [products]="mostviewed$|async"></app-block-products>
 

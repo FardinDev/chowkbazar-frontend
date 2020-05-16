@@ -1,3 +1,4 @@
+import { Abouts } from './../../shared/interfaces/abouts';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Brand } from '../../shared/interfaces/brand';
 import { Observable, Subject, merge } from 'rxjs';
@@ -34,6 +35,8 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
     columnFeatured$: Observable<Product[]>;
     columnLatest$: Observable<Product[]>;
     columnMostViewed$: Observable<Product[]>;
+
+    middleBanner: any;
 
     slides = [
         {
@@ -93,6 +96,11 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
             this.sliderLoading = false;
             
         });
+      this.shop.getAbouts().subscribe(val => { 
+
+            this.middleBanner = val.middle_banner;
+        });
+       
 
         this.mostviewed$ = this.shop.getMostViewed(7);
         
@@ -111,7 +119,7 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
             products: [],
             groups: [
                 {
-                    name: 'All Featured',
+                    name: 'Featured',
                     current: true,
                     products$: this.shop.getFeaturedProducts(null, 15),
                 },

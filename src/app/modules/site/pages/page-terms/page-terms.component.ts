@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ShopService } from 'src/app/shared/api/shop.service';
 
 @Component({
     selector: 'app-terms',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
     styleUrls: ['./page-terms.component.scss']
 })
 export class PageTermsComponent {
-    constructor() { }
+    privacy_policy: any;
+    constructor(
+        public shop: ShopService
+    ) { }
+
+    ngOnInit(): void {
+       
+        this.shop.getAbouts().subscribe(val => { 
+
+            this.privacy_policy = val.privacy_policy;
+    
+        });
+    }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RootService } from 'src/app/shared/services/root.service';
 
 @Component({
@@ -6,8 +6,12 @@ import { RootService } from 'src/app/shared/services/root.service';
     templateUrl: './block-banner.component.html',
     styleUrls: ['./block-banner.component.scss']
 })
+
 export class BlockBannerComponent {
     constructor(public root: RootService) {
-     
-     }
+        
+    }
+
+    @Input() img = '';
+
 }

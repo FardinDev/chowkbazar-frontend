@@ -9,9 +9,16 @@ export const navigation: NavigationLink[] = [
     //     ]
     // }},
     {label: 'Home', url: '/'},
-    {label: 'Products', url: '/shop/catalog'},
+    {label: 'Products', url: '/shop/catalog', menu: {
+        type: 'menu',
+        items: [
+            {label: 'Featured Products', url: '/shop/catalog'},
+            {label: 'Most Viewed', url: '/shop/catalog'},
+            {label: 'All Products', url: '/shop/catalog'},
+        ]
+    }},
     {label: 'Source Products', url: '/source-products'},
-    {label: 'Become a Seller', url: '/source-products'},
+    {label: 'Become a Seller', url: '/site/become-a-seller'},
     // {label: 'Megamenu', url: '/shop/catalog', menu: {
     //     type: 'megamenu',
     //     size: 'nl',

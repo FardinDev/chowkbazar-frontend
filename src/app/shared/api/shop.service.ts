@@ -1,3 +1,4 @@
+import { Abouts } from './../interfaces/abouts';
 import { MobileMenuItem } from './../interfaces/mobile-menu-item';
 
 import { Injectable } from '@angular/core';
@@ -52,8 +53,8 @@ export class ShopService {
         private http: HttpClient,
     ) { }
 
-    // url = 'http://localhost:8000';
-    url = 'https://www.chowkbazarbd.com/v2';
+    url = 'http://localhost:8000';
+    // url = 'https://www.chowkbazarbd.com/v2';
     defaultPage = 1;
     /**
      * Returns category object by slug.
@@ -71,6 +72,10 @@ export class ShopService {
 
     getSliders(): Observable<Slider[]>{
         return this.http.get<Slider[]>(this.url+`/api/sliders`);
+    }
+
+    getAbouts(): Observable<Abouts>{
+        return this.http.get<Abouts>(this.url+`/api/get-abouts`);
     }
 
     storeQuery(id: number, name: string, phoneOrEmail: string, query: string): Observable<queryObj>{
