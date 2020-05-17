@@ -24,6 +24,9 @@ export interface FilterItem {
 export interface ColorFilterItem extends FilterItem {
     color: string;
 }
+export interface TagFilterItem extends FilterItem {
+    tag: string;
+}
 export interface CategoryFilterItem extends FilterItem {
     type: 'parent'|'current'|'child';
     category: Category;
@@ -49,6 +52,11 @@ export interface ColorFilter extends ValuableFilterBase {
     type: 'color';
     value: ListFilterValue;
     items: ColorFilterItem[];
+}
+export interface TagFilter extends ValuableFilterBase {
+    type: 'tag';
+    value: ListFilterValue;
+    items: TagFilterItem[];
 }
 export interface RadioFilter extends ValuableFilterBase {
     type: 'radio';

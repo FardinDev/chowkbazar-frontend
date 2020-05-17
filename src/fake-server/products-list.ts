@@ -27,6 +27,8 @@ export function getProductsList(categorySlug: string|null, options: ListOptions)
     const limit = options.limit || 12;
     const sort = options.sort || 'default';
     const tag = options.tag || 'all';
+    const search = options.search || 'all';
+    const view = options.view || 'all';
     const filterValues = options.filterValues || {};
     const filters: Filter[] = [];
     const filtersDef = [
@@ -126,6 +128,8 @@ export function getProductsList(categorySlug: string|null, options: ListOptions)
         page,
         limit,
         tag,
+        search,
+        view,
         total,
         pages,
         from,

@@ -19,6 +19,12 @@ export interface PaginatedList<T> extends List<T> {
     /** tag name. */
     tag: string;
 
+    /** search name. */
+    search: string;
+
+    /** view name. */
+    view: string;
+
     /** Total items in list. Not a items.length. */
     total: number;
 

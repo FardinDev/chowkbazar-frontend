@@ -5,7 +5,8 @@ export interface MobileMenuItemBase {
 }
 
 export interface MobileMenuItemLink extends MobileMenuItemBase {
-    type: 'link';
+    type: string;
+    queryparam?: boolean;
     url: string;
 }
 

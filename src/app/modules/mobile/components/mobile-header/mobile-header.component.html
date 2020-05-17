@@ -27,7 +27,7 @@
                     appDropdown="mobile-header__search--open" #search="appDropdown"
                     > 
                     <div class="search__body">
-                        <form class="mobile-header__search-form" action="">
+                        <form class="mobile-header__search-form" action="shop/catalog" method="GET">
                             <input class="mobile-header__search-input" name="search" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off" (keydown.escape)="search.close()"
                             (input)="searchQuery($event.target.value)"
                             #searchInput>

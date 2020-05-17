@@ -1,3 +1,4 @@
+import { RootService } from 'src/app/shared/services/root.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MobileMenuItem } from '../../../../shared/interfaces/mobile-menu-item';
 
@@ -12,7 +13,9 @@ export class MobileLinksComponent {
 
     @Output() itemClick: EventEmitter<MobileMenuItem> = new EventEmitter();
 
-    constructor() { }
+    constructor(
+        public root: RootService
+    ) { }
 
     onItemClick(item: MobileMenuItem): void {
         this.itemClick.emit(item);

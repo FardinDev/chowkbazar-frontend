@@ -12,8 +12,8 @@ export const navigation: NavigationLink[] = [
     {label: 'Products', url: '/shop/catalog', menu: {
         type: 'menu',
         items: [
-            {label: 'Featured Products', url: '/shop/catalog'},
-            {label: 'Most Viewed', url: '/shop/catalog'},
+            {label: 'Featured Products', queryparam: true, url: 'featured'},
+            {label: 'Most Viewed', queryparam: true, url: 'most-viewed'},
             {label: 'All Products', url: '/shop/catalog'},
         ]
     }},

@@ -38,6 +38,8 @@ export class PageCategoryService {
     get limit(): number { return this.listState.limit; }
     get sort(): string { return this.listState.sort; }
     get tag(): string { return this.listState.tag; }
+    get search(): string { return this.listState.search; }
+    get view(): string { return this.listState.view; }
     get total(): number { return this.listState.total; }
     get pages(): number { return this.listState.pages; }
     get from(): number { return this.listState.from; }
@@ -60,7 +62,7 @@ export class PageCategoryService {
     setOptions(options: ListOptions, emitEvent: boolean = true): void {
         const diff = this.optionsDiff(options);
 
-        if ('limit' in diff || 'sort' in diff || 'tag' in diff || 'filterValues' in diff) {
+        if ('limit' in diff || 'sort' in diff || 'tag' in diff || 'search' in diff || 'view' in diff|| 'filterValues' in diff) {
             options.page = 1;
         }
 
@@ -81,7 +83,7 @@ export class PageCategoryService {
     protected optionsDiff(curr: ListOptions): ListOptions {
         const result: ListOptions = {};
 
-        ['page', 'limit', 'sort', 'tag'].forEach(key => {
+        ['page', 'limit', 'sort', 'tag', 'search', 'view'].forEach(key => {
             if (key in curr && this[key] !== curr[key]) {
                 result[key] = curr[key];
             }

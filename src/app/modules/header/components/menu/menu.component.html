@@ -15,7 +15,8 @@
             <app-icon *ngIf="item.items" class="menu__arrow" name="arrow-rounded-right-6x9" size="6x9"></app-icon>
         </ng-template>
 
-        <a *ngIf="!item.external" [routerLink]="RootService.catalog(item.url)" [target]="item.target" (click)="itemClick.emit(item)"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
+        <a *ngIf="item.queryparam" [routerLink]="RootService.shop()" [queryParams]="{view: item.url}" [target]="item.target" (click)="itemClick.emit(item)"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
+        <a *ngIf="!item.external && !item.queryparam" [routerLink]="RootService.catalog(item.url)" [target]="item.target" (click)="itemClick.emit(item)"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
         <a *ngIf="item.external" [href]="item.url" [target]="item.target" (click)="itemClick.emit(item)"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
 
         <div *ngIf="item.items" class="menu__submenu">

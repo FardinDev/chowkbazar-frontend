@@ -2,7 +2,7 @@
     appDropdown="search--suggestions-open" #search="appDropdown"
     >
     <div class="search__body">
-        <form class="search__form" action="">
+        <form class="search__form" action="shop/catalog" method="GET">
             <input class="search__input" name="search" placeholder="Search over 10,000 products"
                 aria-label="Site search" type="text" autocomplete="off" (click)="search.open(); "
                 (input)="searchQuery($event.target.value)"

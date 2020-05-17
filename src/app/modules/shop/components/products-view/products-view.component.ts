@@ -34,16 +34,14 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
 
-        this.activeRoute.queryParams.subscribe(queryParams => {
-         if (queryParams.tag) {
-            this.pageService.updateOptions(queryParams);
-         }
-        });
+        
         this.listOptionsForm = this.fb.group({
             page: this.fb.control(this.pageService.page),
             limit: this.fb.control(this.pageService.limit),
             sort: this.fb.control(this.pageService.sort),
             tag: this.fb.control(this.pageService.tag),
+            search: this.fb.control(this.pageService.search),
+            view: this.fb.control(this.pageService.view),
         });
         this.listOptionsForm.valueChanges.subscribe(value => {
             value.limit = parseFloat(value.limit);
@@ -51,12 +49,26 @@ export class ProductsViewComponent implements OnInit, OnDestroy {
             this.pageService.updateOptions(value);
         });
 
+        this.activeRoute.queryParams.subscribe(queryParams => {
+            if (queryParams.tag) {
+               this.pageService.updateOptions(queryParams);
+           }
+           if (queryParams.search) {
+               this.pageService.updateOptions(queryParams);
+               // alert(queryParams.search);
+           }
+           if (queryParams.view) {
+               this.pageService.updateOptions(queryParams);
+               // alert(queryParams.view);
+            }
+           });
+
         this.pageService.list$.pipe(
             takeUntil(this.destroy$)
         ).subscribe(
-            ({page, limit, sort, tag, filterValues}) => {
+            ({page, limit, sort, tag, search, view, filterValues}) => {
                 this.filtersCount = Object.keys(filterValues).length;
-                this.listOptionsForm.setValue({page, limit, sort, tag}, {emitEvent: false});
+                this.listOptionsForm.setValue({page, limit, sort, tag, search, view}, {emitEvent: false});
             }
         );
     }

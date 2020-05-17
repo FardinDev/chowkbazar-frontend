@@ -968,14 +968,15 @@ export const mobileMenu: MobileMenuItem[] = [
             },
             {
                 "type": "link",
-                "label": "Terms And Conditions",
-                "url": "/site/terms"
+                "label": "Become a Seller",
+                "url": "/site/become-a-seller"
             },
             {
                 "type": "link",
-                "label": "FAQ",
-                "url": "/site/faq"
-            }
+                "label": "Privacy Policy",
+                "url": "/site/privacy-policy"
+            },
+            
         ]
     }
 ];

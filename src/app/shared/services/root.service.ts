@@ -30,6 +30,16 @@ export class RootService {
         return basePath+'/?tag='+tag;
 
     }
+    searchQuery(search: string): string {
+        const basePath = this.shop();
+        return basePath+'/?search='+search;
+
+    }
+    viewQuery(view: string): string {
+        const basePath = this.shop();
+        return basePath+'/?view='+view;
+
+    }
 
     category(category: Partial<Category>): string {
         if (category.type === 'shop') {

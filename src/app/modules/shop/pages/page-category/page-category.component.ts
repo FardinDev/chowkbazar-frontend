@@ -43,12 +43,12 @@ export class PageCategoryComponent implements OnDestroy {
         this.route.data.subscribe(data => {
             this.breadcrumbs = [
                 {label: 'Home', url: this.root.home()},
-                {label: 'Shop', url: this.root.shop()},
+                {label: 'Products', url: this.root.shop()},
             ];
 
             // If categorySlug is undefined then this is a root catalog page.
             if (!this.getCategorySlug()) {
-                this.pageHeader = 'Shop';
+                this.pageHeader = 'Products';
             } else {
                 this.pageHeader = data.category.name;
 
@@ -126,6 +126,15 @@ export class PageCategoryComponent implements OnDestroy {
         }
         if ('tag' in options && options.tag !== 'all') {
             params.tag = options.tag;
+            this.pageHeader = 'Tags: '+params.tag;
+
+        }
+        if ('search' in options && options.search !== 'all') {
+            params.search = options.search;
+            this.pageHeader = 'Search Results For: '+params.search;
+        }
+        if ('view' in options && options.view !== 'all') {
+            params.view = options.view;
         }
         if ('filterValues' in options) {
             this.pageService.filters.forEach(filter => {

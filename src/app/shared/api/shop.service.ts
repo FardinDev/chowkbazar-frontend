@@ -33,6 +33,8 @@ export interface ListOptions {
     limit?: number;
     sort?: string;
     tag?: string;
+    search?: string;
+    view?: string;
     filterValues?: SerializedFilterValues;
 }
 
@@ -201,10 +203,7 @@ export class ShopService {
         if (categorySlug) {
             params.category = categorySlug;
         }
-        if ('page' in options) {
-            params.page = options.page.toString();
-            this.defaultPage = options.page;
-        }
+        
         if ('limit' in options) {
             params.limit = options.limit.toString();
         }
@@ -214,8 +213,18 @@ export class ShopService {
         if ('tag' in options) {
             params.tag = options.tag;
         }
+        if ('search' in options) {
+            params.search = options.search;
+        }
+        if ('view' in options) {
+            params.view = options.view;
+        }
         if ('filterValues' in options) {
             Object.keys(options.filterValues).forEach(slug => params[`filter_${slug}`] = options.filterValues[slug]);
+        }
+        if ('page' in options) {
+            params.page = options.page.toString();
+            // this.defaultPage = options.page;
         }
         
         // console.log(options);
@@ -229,7 +238,8 @@ export class ShopService {
 
         // This is for demonstration purposes only. Remove it and use the code above.
 
-        return this.http.post<ProductsList>(this.url+`/api/get-product-list?page=`+this.defaultPage, {params});
+   
+        return this.http.post<ProductsList>(this.url+`/api/get-product-list?page=`+params.page, {params});
         // return getProductsList(categorySlug, options);
     }
 

@@ -34,4 +34,5 @@ export class MenuComponent {
         this.hoveredItem = null;
         this.itemClick.emit(item);
     }
+
 }
