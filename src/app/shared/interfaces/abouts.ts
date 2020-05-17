@@ -1,7 +1,8 @@
 export interface Abouts {
     about: string|null;
     privacy_policy: string|null;
-    middle_banner: string|null;
+    middle_banner_desktop: string|null;
+    middle_banner_mobile: string|null;
     become_seller: string|null;
     address?: string|null;
     email?: string|null;

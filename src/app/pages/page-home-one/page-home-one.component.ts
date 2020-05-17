@@ -36,45 +36,21 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
     columnLatest$: Observable<Product[]>;
     columnMostViewed$: Observable<Product[]>;
 
-    middleBanner: any;
+    middleBanner_desktop: any;
+    middleBanner_mobile: any;
 
     slides = [
+    
         {
             "title": "",
             "subtitle": "",
             "text": "",
-            "image_classic": "https://www.chowkbazarbd.com/v2/storage/slider-infos/March2020/zsxGTmtuRsx2wGDYE6QA-classic.jpg",
-            "image_full": "https://www.chowkbazarbd.com/v2/storage/slider-infos/March2020/zsxGTmtuRsx2wGDYE6QA.jpg",
-            "image_mobile": "https://www.chowkbazarbd.com/v2/storage/slider-infos/March2020/zsxGTmtuRsx2wGDYE6QA-mobile.jpg",
+            "image_classic": "https://www.chowkbazarbd.com/v2/storage/slider-infos/May2020/TAVp2Y4dxn5oNYlUbb9Z.jpg",
+            "image_full": "https://www.chowkbazarbd.com/v2/storage/slider-infos/May2020/sXtPww3P8bjogexJLney.jpg",
+            "image_mobile": "https://www.chowkbazarbd.com/v2/storage/slider-infos/May2020/sXtPww3P8bjogexJLney-mobile.jpg",
             "url": ""
         },
-        {
-            "title": "",
-            "subtitle": "",
-            "text": "",
-            "image_classic": "https://www.chowkbazarbd.com/v2/storage/slider-infos/April2020/3RCO0Y9a63aHagcZJF6d-classic.jpg",
-            "image_full": "https://www.chowkbazarbd.com/v2/storage/slider-infos/April2020/3RCO0Y9a63aHagcZJF6d.jpg",
-            "image_mobile": "https://www.chowkbazarbd.com/v2/storage/slider-infos/April2020/3RCO0Y9a63aHagcZJF6d-mobile.jpg",
-            "url": ""
-        },
-        {
-            "title": "",
-            "subtitle": "",
-            "text": "",
-            "image_classic": "https://www.chowkbazarbd.com/v2/storage/slider-infos/March2020/BXhknKKYrlpNzvmJCkaq-classic.jpg",
-            "image_full": "https://www.chowkbazarbd.com/v2/storage/slider-infos/March2020/BXhknKKYrlpNzvmJCkaq.jpg",
-            "image_mobile": "https://www.chowkbazarbd.com/v2/storage/slider-infos/March2020/BXhknKKYrlpNzvmJCkaq-mobile.jpg",
-            "url": ""
-        },
-        {
-            "title": "",
-            "subtitle": "",
-            "text": "",
-            "image_classic": "https://www.chowkbazarbd.com/v2/storage/slider-infos/March2020/MwbvX5pfOXScdKrWu3yJ-classic.jpg",
-            "image_full": "https://www.chowkbazarbd.com/v2/storage/slider-infos/March2020/MwbvX5pfOXScdKrWu3yJ.jpg",
-            "image_mobile": "https://www.chowkbazarbd.com/v2/storage/slider-infos/March2020/MwbvX5pfOXScdKrWu3yJ-mobile.jpg",
-            "url": ""
-        }
+        
     ];
 
 
@@ -98,7 +74,8 @@ export class PageHomeOneComponent implements OnInit, OnDestroy {
         });
       this.shop.getAbouts().subscribe(val => { 
 
-            this.middleBanner = val.middle_banner;
+            this.middleBanner_desktop = val.middle_banner_desktop;
+            this.middleBanner_mobile = val.middle_banner_mobile;
         });
        
 

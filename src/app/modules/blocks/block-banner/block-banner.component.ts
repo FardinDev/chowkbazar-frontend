@@ -12,6 +12,7 @@ export class BlockBannerComponent {
         
     }
 
-    @Input() img = '';
+    @Input() desktop = '';
+    @Input() mobile = '';
 
 }
