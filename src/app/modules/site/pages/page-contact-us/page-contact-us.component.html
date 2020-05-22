@@ -10,6 +10,7 @@
                             <h4 class="contact-us__header card-title">Our Address</h4>
 
                             <div class="contact-us__address">
+                                <button *ngIf="loading" class="btn btn-light btn-loading btn-xl">Extra Large</button>
                                 <p>
                                     {{address}}<br>
                                     Email: {{email}}<br>

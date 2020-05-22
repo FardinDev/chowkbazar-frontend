@@ -20,6 +20,7 @@ export class PageBecomeSellerComponent implements OnInit{
     };
 
     become_seller = '';
+    loading = true;
 
     constructor(
         private direction: DirectionService,
@@ -31,6 +32,7 @@ export class PageBecomeSellerComponent implements OnInit{
         this.shop.getAbouts().subscribe(val => { 
 
             this.become_seller = val.become_seller;
+            this.loading = false;
         });
     }
 }

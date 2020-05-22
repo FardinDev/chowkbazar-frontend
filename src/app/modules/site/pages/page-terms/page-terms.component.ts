@@ -8,6 +8,7 @@ import { ShopService } from 'src/app/shared/api/shop.service';
 })
 export class PageTermsComponent {
     privacy_policy: any;
+    loading = true;
     constructor(
         public shop: ShopService
     ) { }
@@ -17,6 +18,7 @@ export class PageTermsComponent {
         this.shop.getAbouts().subscribe(val => { 
 
             this.privacy_policy = val.privacy_policy;
+            this.loading = false;
     
         });
     }

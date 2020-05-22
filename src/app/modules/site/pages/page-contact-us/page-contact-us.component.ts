@@ -12,6 +12,7 @@ export class PageContactUsComponent {
     phone: string;
     email: string;
     embeded_map: string;
+    loading = true;
     constructor(
         public shop: ShopService
     ) { }
@@ -25,6 +26,7 @@ export class PageContactUsComponent {
             this.phone = val.phone;
             this.email = val.email;
             this.embeded_map = val.embeded_map;
+            this.loading = false;
 
         });
     }

@@ -48,9 +48,9 @@
             </div>
             <h1 class="product__name">{{ product.name }}</h1>
             <div class="product__rating">
-                <div class="product__rating-stars">
+                <!-- <div class="product__rating-stars">
                     <app-rating [value]="product.rating"></app-rating>
-                </div>
+                </div> -->
                 <div *ngIf='!product.views' class="product__rating-legend">
                     <a href="javascript:void(0)" appClick>{{ product.reviews }} Reviews</a><span>/</span><a href=""
                         appClick>Write A Review</a>

@@ -4,10 +4,10 @@ import { ShopService } from 'src/app/shared/api/shop.service';
 
 @Component({
     selector: 'app-about-us',
-    templateUrl: './page-about-us.component.html',
-    styleUrls: ['./page-about-us.component.scss']
+    templateUrl: './page-re-seller.component.html',
+    styleUrls: ['./page-re-seller.component.scss']
 })
-export class PageAboutUsComponent implements OnInit{
+export class PageReSellerComponent implements OnInit{
     carouselOptions = {
         nav: false,
         dots: true,
@@ -19,9 +19,8 @@ export class PageAboutUsComponent implements OnInit{
         rtl: this.direction.isRTL()
     };
 
-    about = '';
+    re_sell = '';
     loading = true;
-
     constructor(
         private direction: DirectionService,
         public shop: ShopService
@@ -31,7 +30,7 @@ export class PageAboutUsComponent implements OnInit{
        
         this.shop.getAbouts().subscribe(val => { 
 
-            this.about = val.about;
+            this.re_sell = val.re_sell;
             this.loading = false;
         });
     }

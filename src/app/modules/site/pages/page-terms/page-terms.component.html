@@ -7,6 +7,9 @@
                 <h1 class="document__title">Privacy Policy</h1>
             </div>
             <div class="document__content typography">
+                <div *ngIf="loading" class="text-center">
+                    <button class="btn btn-light btn-loading btn-xl">Extra Large</button>
+                </div>
                 <p [innerHTML]='privacy_policy'></p>
             </div>
         </div>

@@ -5,6 +5,7 @@ import { PageContactUsComponent } from './pages/page-contact-us/page-contact-us.
 import { PageTermsComponent } from './pages/page-terms/page-terms.component';
 import { PageFaqComponent } from './pages/page-faq/page-faq.component';
 import { PageBecomeSellerComponent } from './pages/page-become-seller/page-become-seller.component';
+import { PageReSellerComponent } from './pages/page-re-seller/page-re-seller.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
     {
         path: 'become-a-seller',
         component: PageBecomeSellerComponent
+    },
+    {
+        path: 're-seller',
+        component: PageReSellerComponent
     }
 ];
 

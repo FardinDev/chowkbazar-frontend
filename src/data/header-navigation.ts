@@ -19,6 +19,7 @@ export const navigation: NavigationLink[] = [
     }},
     {label: 'Source Products', url: '/source-products'},
     {label: 'Become a Seller', url: '/site/become-a-seller'},
+    {label: 'Reseller Program', url: '/site/re-seller'},
     // {label: 'Megamenu', url: '/shop/catalog', menu: {
     //     type: 'megamenu',
     //     size: 'nl',

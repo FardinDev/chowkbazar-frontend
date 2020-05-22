@@ -44,7 +44,7 @@
 
     @include direction {
         text-align: $inline-end;
-        #{$margin-inline-start}: 80px;
+        #{$margin-inline-start}: 20px;
     }
 }
 .site-header__phone-title {

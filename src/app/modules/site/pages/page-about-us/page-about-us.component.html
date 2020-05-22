@@ -6,6 +6,7 @@
                 <div class="about-us__body">
                     <h1 class="about-us__title">About Us</h1>
                     <div class="about-us__text typography">
+                        <button *ngIf="loading" class="btn btn-light btn-loading btn-xl">Extra Large</button>
                         <p [innerHTML]="about"></p>
                     </div>
                     <!-- <div class="about-us__team">
