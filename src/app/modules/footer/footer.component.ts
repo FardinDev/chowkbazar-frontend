@@ -8,6 +8,7 @@ import { StoreService } from '../../shared/services/store.service';
 })
 export class FooterComponent {
     theme = theme; 
+    activeUser = Math.floor(Math.random() * (150 - 47) + 47);
 
     constructor(public store: StoreService) { }
 }

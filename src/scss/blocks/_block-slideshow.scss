@@ -240,8 +240,11 @@ $local-dot-size: $local-dots-height - $local-dots-padding * 2;
     .block-slideshow__slide-image--mobile {
         background-position: top center;
         display: block;
-        background-size: cover;
+        background-size: contain;
         background-repeat: no-repeat;
+    }
+    .block-slideshow__slide-image--desktop {
+        display: none;
     }
     .block-slideshow__slide-content {
         left: 5%;

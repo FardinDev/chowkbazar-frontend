@@ -56,7 +56,7 @@ export class ShopService {
     ) { }
 
     // url = 'http://localhost:8000';
-    url = 'https://www.chowkbazarbd.com/v2';
+    url = 'https://www.ckbzr.xyz/v2';
     defaultPage = 1;
     /**
      * Returns category object by slug.
